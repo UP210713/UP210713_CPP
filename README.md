@@ -1,2 +1,5 @@
-# UP210713_CPP
-Repositorio materia de programación 
+# Bienvenido a mi repositorio de programación.
+ 
+## Aquí encontrarás mis proyectos de la materia.
+
+**Samuel Salvador Soto Torres ** 
