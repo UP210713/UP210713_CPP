@@ -2,4 +2,4 @@
  
 ## Aquí encontrarás mis proyectos de la materia.
 
-**Samuel Salvador Soto Torres ** 
+**Samuel Salvador Soto Torres** 
