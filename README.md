@@ -4,5 +4,15 @@
 
 **Samuel Salvador Soto Torres** 
 
-![Logo UPA](https://github.com/UP210713/UP210713_CPP/blob/main/imagenes/Fondopantallas-01.jpg)
+![Logo UPA](imagenes/Fondopantallas-01.jpg)
+
+*me gusta ls programación y aprender más sobre la programación.* 
+
+**Carrera:** *Ingenieria en sistemas computacionlaes*
+**Grupo:** *ISC03B*
+![Super](imagenes/super.jpeg)
+
+#### Pd: me gusta Dragon ball desde que tengo memoria
+
+
 
