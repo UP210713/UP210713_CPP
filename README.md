@@ -1,4 +1,5 @@
-# Bienvenido a mi repositorio de programación.
+
+<h1 align = "center">Bienvenido a mi repositorio de programación.</h1>
  
 ## Aquí encontrarás mis proyectos de la materia.
 
