@@ -2,7 +2,7 @@
 
 <h2>Este programa permite que el usuario ingrese su renta mensual, y mediantes condiciones "if" el programa determinara el impuesto que se le aplicara y que pagara<h2>
 
-![Codigo de programa](/imagenes/CorridaDePrograma.png)
+![Codigo de programa](/imagenes/Imagen1.png)
 
 **En la anterior imagen se muestra mi codigo diseñado para el trabajo solicitado por mi docente**
 
