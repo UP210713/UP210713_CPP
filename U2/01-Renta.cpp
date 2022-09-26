@@ -1,16 +1,22 @@
-
+/*
+Samuel Salvador Soto Torres 
+ISC03B
+01-Renta
+Fecha de realizacion: 23 de septiembre 2022
+*/
 #include<iostream>
 
 using namespace std;
 
 int main(){
-
+    //Variables utilizadas para el programa
     int Renta;
     int totalAPagar;
 
     cout<<"Ingresa la renta que generaste este mes: "<<endl;
     cout<<"$ ";
     cin>> Renta;
+        //Condiciones utilizadas para determinara el descuento que se  aplicara
          if ( Renta<=9999)
         {
         totalAPagar=Renta*0.05;
@@ -36,6 +42,7 @@ int main(){
                          totalAPagar=Renta*0.45;
                             
                         }
+    //Impresion del impuesto a pagar                    
     cout<<"Tu total a pagar de impuesto es: "<<totalAPagar<<endl;
 
 return 0;                
