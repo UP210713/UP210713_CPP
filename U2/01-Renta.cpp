@@ -14,7 +14,7 @@ int main()
     int Renta;
     int totalAPagar;
 
-    cout << "Ingresa la renta que generaste este mes: " << endl;
+    cout << "Enter the income you generated this month: " << endl;
     cout << "$ ";
     cin >> Renta;
     // Condiciones utilizadas para determinara el descuento que se  aplicara
@@ -39,7 +39,7 @@ int main()
         totalAPagar = Renta * 0.45;
     }
     // Impresion del impuesto a pagar
-    cout << "Tu total a pagar de impuesto es: " << totalAPagar << endl;
+    cout << "Your total tax payable is: " << totalAPagar << endl;
 
     return 0;
 }

@@ -1,14 +1,10 @@
-/*
-Author: Samuel Salvador Soto Torres
-Group: ISC03B
-UP210713
-E-mail: up210713@alumnos.upa.edu.mx
-*/
-#include <iostream>
+<h1 align=Center>Readme of the second program "02-beneficios"<h1>
 
-using namespace std;
+<h2 align=Center>This program allows the user inserte the result of his evaluation and checks his perfomance level<h2>
 
-int main()
+``` c++
+
+    int main()
 {
     double evaluacion;
     double ResultadoDeEvaluacion;
@@ -41,3 +37,6 @@ int main()
     }
     return 0;
 } 
+
+```
+*EXPLICAR COMO FUNCIONA EL PROGRAMA.

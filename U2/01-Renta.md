@@ -1,15 +1,48 @@
-<h1 align=center>Readme del trabajo 01<h1>
+<h1 align=center>Readme of the first program "01-Renta"<h1>
 
-<h2>Este programa permite que el usuario ingrese su renta mensual, y mediantes condiciones "if" el programa determinara el impuesto que se le aplicara y que pagara<h2>
+<h2>This program allows the user inserts the mensual renta and the program analyze the amount of rent and determinate the tax what the user will have to pay<h2>
 
-![Codigo de programa](/imagenes/Imagen1.png)
+``` c++
+    int main()
+{
+    // Variables utilizadas para el programa
+    int Renta;
+    int totalAPagar;
 
-**En la anterior imagen se muestra mi codigo diseñado para el trabajo solicitado por mi docente**
+    cout << "Enter the income you generated this month: " << endl;
+    cout << "$ ";
+    cin >> Renta;
+    // Condiciones utilizadas para determinara el descuento que se  aplicara
+    if (Renta <= 9999)
+    {
+        totalAPagar = Renta * 0.05;
+    }
+    else if (Renta >= 10000 & Renta <= 19999)
+    {
+        totalAPagar = Renta * 0.15;
+    }
+    else if (Renta >= 20000 & Renta <= 34999)
+    {
+        totalAPagar = Renta * 0.20;
+    }
+    else if (Renta >= 35000 & Renta <= 59999)
+    {
+        totalAPagar = Renta * 0.30;
+    }
+    else if (Renta >= 60000)
+    {
+        totalAPagar = Renta * 0.45;
+    }
+    // Impresion del impuesto a pagar
+    cout << "Your total tax payable is: " << totalAPagar << endl;
 
-## Primer paso: se le solicita al usuario que ingrese su renta mensual.##
-## Segundo paso: el usuario ingresa su renta mensual. ##
-## Tercer paso: el programa analiza la renta que el ususairo ingreso, y mediante las condiciones "if" y "else if" determina el impuesto a pagar del usuario ##
-## Cuarto paso: el rograma muestra al usuario el impuesto a pagar al usuario. ##
+    return 0;
+}
+```
+## First step: se le solicita al usuario que ingrese su renta mensual.##
+## Second step: el usuario ingresa su renta mensual. ##
+## Third step: el programa analiza la renta que el ususairo ingreso, y mediante las condiciones "if" y "else if" determina el impuesto a pagar del usuario ##
+## Fourth step: el rograma muestra al usuario el impuesto a pagar al usuario. ##
 
 ![Corrida de programa1](/imagenes/CorridaDePrograma0.png)
 
