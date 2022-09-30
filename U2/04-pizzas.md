@@ -1,12 +1,8 @@
-/*
-Author: Samue Salvador Soto Torres
-Group: ISC03B
-UP210713
-E-mail: up210713@alumnos.upa.edu.mx
-*/
-#include<iostream>
-using namespace std;
-int main (){
+<h1 align=center> Readme of the fourth program "04-pizzas"</h1>
+
+``` c++
+
+    int main (){
     int Pizza;
     int ingredienteVegetariano;
     int ingredienteNoVegetariano;
@@ -65,3 +61,5 @@ int main (){
     
 return 0;  
 }
+
+```

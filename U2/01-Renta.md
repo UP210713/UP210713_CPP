@@ -39,10 +39,10 @@
     return 0;
 }
 ```
-## First step: se le solicita al usuario que ingrese su renta mensual.##
-## Second step: el usuario ingresa su renta mensual. ##
-## Third step: el programa analiza la renta que el ususairo ingreso, y mediante las condiciones "if" y "else if" determina el impuesto a pagar del usuario ##
-## Fourth step: el rograma muestra al usuario el impuesto a pagar al usuario. ##
+## First step: sthe user is asked for his monthly rent.##
+## Second step: the user enters their monthly rent. ##
+## Third step: the program analyze the rent what the user enters, and through the conditions "if" y "else if" determines the tax of the user to will pay##
+## Fourth step: the program shows the user the tax to pay. ##
 
 ![Corrida de programa1](/imagenes/CorridaDePrograma0.png)
 
@@ -52,6 +52,4 @@
 
 ![Corrida de programa4](/imagenes/CorridaDePrograma2.png)
 
-**En la naterior imagen se muestra el resultado de haber corrido el programa**
-
-<h2> Nota: las operaciones fueron comprobodas por el programador desde su calculadora, para así verificar que los resultadors del programa fueron correctos<h2>
+**In the last images I show the test of the program**

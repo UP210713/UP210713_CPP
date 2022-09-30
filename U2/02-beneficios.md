@@ -1,6 +1,6 @@
 <h1 align=Center>Readme of the second program "02-beneficios"<h1>
 
-<h2 align=Center>This program allows the user inserte the result of his evaluation and checks his perfomance level<h2>
+<h2 align=Center>This program allows the user insert the result of his evaluation and checks his perfomance level<h2>
 
 ``` c++
 
