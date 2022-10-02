@@ -12,6 +12,8 @@
 
 **Group:** *ISC03B*
 
+<img alt="Logo C++" height="300" src="imagenes/C.jpg"/>
+
 <h2 id="Table of contents">Table of contentes</h2>
 <o>
 <li><a href="https://github.com/UP210713/UP210713_CPP/tree/main/U1"> U1 </a></li>
