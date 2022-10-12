@@ -212,4 +212,33 @@ return 0;
 }
 
 ```
+## Pruebas
+<h1>==============================</h1>
 
+
+<h1 align=center> Readme of the fifth program "05-Temperaturas"</h1>
+
+
+
+
+
+
+
+
+
+<h1>==============================</h1>
+
+
+<h1 align=center> Readme of the sixth program "06-Compras"</h1>
+
+
+
+
+
+
+
+
+<h1>==============================</h1>
+
+
+<h1 align=center> Readme of the seventh program "07-BinarioADecimal"</h1>
