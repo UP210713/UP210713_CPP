@@ -101,7 +101,10 @@
 } 
 
 ```
+
 ![Corrida de programa2](/imagenes/02-B-C1.png)
+![Corrida de programa2.2](/imagenes/02-B-C2.png)
+![Corrida de programa2.3](/imagenes/02-B-C3.png)
 
 **In the last images I show you, the multiply test of the program two**
 
