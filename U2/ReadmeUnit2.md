@@ -102,6 +102,11 @@
 
 ```
 
+## First step: The program asks at the user for his performance.##
+## Second step: The user check in his performance. ##
+## Third step: the program analyze the performance what the user inserts and anlize the performance##
+## Fourth step: the program shows at the user the result of his performance ando shows the money that he will recibe. ##
+
 ![Corrida de programa2](/imagenes/02-B-C1.png)
 ![Corrida de programa2.2](/imagenes/02-B-C2.png)
 ![Corrida de programa2.3](/imagenes/02-B-C3.png)
@@ -150,6 +155,10 @@ return 0;
 }
 
 ```
+## First step: The program asks that he age.##
+## Second step: The user check in he age ##
+## Third step: the program analyze the age what the user inserts ##
+## Fourth step: the program shows at the user the discount that he will recibe. ##
 
 <h1 align=center>======================================================</h1>
 
@@ -220,6 +229,12 @@ return 0;
 }
 
 ```
+
+## First step: The program asks at the user the tipe of pizza waht he wants.##
+## Second step: The user selects the type of pizaa what he wants ##
+## Third step: the program analyze the answer of the user and asks again what ingredients the user prefer##
+## Fourth step: The program shows at the user the type of pizza what he selects and the ingredients ##
+
 ## Pruebas
 <h1 align=center>======================================================</h1>
 
@@ -263,6 +278,11 @@ return 0;
 }
 
 ```
+## First step: The program asks at the user for 6 temeperatures.##
+## Second step: The user check the 6 temperatures ##
+## Third step: the program analyze the 6 temperarures ##
+## Fourth step: the program shows at the user the average of all temperatures and the minimum and the maximum temperatures. ##
+
 ## tests
 
 <h1 align=center>======================================================</h1>
@@ -297,20 +317,30 @@ return 0;
 }
 ```
 
-## Test
+## First step: The program asks the cant of productos what the user will he buy and after asks the prize of the products##
+## Second step: The user check in the cant of products and the pize of the products ##
+## Third step: the program analyze the the cant of products for known when the program will he stops ##
+## Fourth step: the program shows at the user the total cost of all products and the correspondets prizes. ##
+
+## Test ##
 <h1 align=center>======================================================</h1>
 
 
 <h1 align=center> Readme of the seventh program "07-BinarioADecimal"</h1>
 
 ```c++
-    int main(){
+#include<iostream>
+using namespace std;
+int main(){
+    //These are the variables used in the code
     int numero;
     string resultado;
     cout<<"Enter one number in decimal, what do you want convert to binary"<<endl;
     cin>>numero;
+    //In this cycle the program determines the number of times what repet de the cycly with one condition
     while (numero != 0)
     {
+        //This "if" is necesary for create the binary number
         if (numero%2==0)
         {
             resultado="0"+resultado;
@@ -320,10 +350,16 @@ return 0;
         }
         numero/=2;
     }
+    //In this part the program shows at the user the binary number
     cout<<" You number in binary is: "<<resultado<<endl;
 return 0;
 }
 ```
+
+## First step: The program asks that the user for one decimal number.##
+## Second step: The user check in one decimal number ##
+## Third step: the program converts the decimal number to binary number##
+## Fourth step: the program shows at the user the binary number. ##
 
 
 <h1 align=center>======================================================</h1>
@@ -332,22 +368,25 @@ return 0;
 <h1 align=center> Readme of the seventh program "08-TablasDeMultiplicar"</h1>
 
 ```c++
-    int main(){
+int main(){
+    //These are te variables used in the code
     int numero;
     int limiteDeTabla;
     int multiplicacion;
+    //In this part the program asks at the user the limit os his table
     cout<<"Please check in, the limit of your table of multiply"<<endl;
     cin>>limiteDeTabla;
-
+    //The program asks at the user for what number he wants multiply the table
     cout<<"And now inser, the number for multiply"<<endl;
     cin>>numero;
-    
+    //In this cycles the program create the multiplication table using the variables
     for ( int i = 0; i <= limiteDeTabla; i++)
     {
         for ( int z = 0; z < 49; z++)
         {
             cout<<"-";
         }
+        //Here the program shows the multiplication table
         cout<<endl;
         multiplicacion=i*numero;
         cout<<"|\t"<<i<<"\tx\t"<<numero<<"\t=\t"<<multiplicacion<<"\t|"<<endl;
@@ -360,3 +399,8 @@ return 0;
 return 0;
 }
 ```
+
+## First step: The program asks at the user for the limit of the multiplication table ans after asks for one number to multiply the table.##
+## Second step: The user check in the limit and the number ##
+## Third step: the program create the table whit the limit and the number what the user inserts ##
+## Fourth step: the program shows at the user the multiplication table. ##
