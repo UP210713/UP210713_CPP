@@ -46,11 +46,11 @@
 
 ![Corrida de programa1](/imagenes/CorridaDePrograma0.png)
 
-![Corrida de programa2](/imagenes/CorridaDePrograma.png)
+![Corrida de programa1.2](/imagenes/CorridaDePrograma.png)
 
-![Corrida de programa3](/imagenes/CorridaDePrograma1.png)
+![Corrida de programa1.3](/imagenes/CorridaDePrograma1.png)
 
-![Corrida de programa4](/imagenes/CorridaDePrograma2.png)
+![Corrida de programa1.4](/imagenes/CorridaDePrograma2.png)
 
 **In the last images I show the test of the program**
 
@@ -101,6 +101,8 @@
 } 
 
 ```
+![Corrida de programa2](/imagenes/02-B-C1.png)
+
 **In the last images I show you, the multiply test of the program two**
 
 *EXPLICAR COMO FUNCIONA EL PROGRAMA.
