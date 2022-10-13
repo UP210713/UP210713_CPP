@@ -56,7 +56,8 @@
 
 
 
-<h1>==============================</h1>
+<h1 align=center>========================================================</h1>
+
 
 
 <h1 align=Center>Readme of the second program "02-beneficios"<h1>
@@ -105,7 +106,8 @@
 *EXPLICAR COMO FUNCIONA EL PROGRAMA.
 
 
-<h1>==============================</h1>
+<h1 align=center>========================================================</h1>
+
 
 
 <h1 align=center> Readme of the third program "03-juegos"</h1>
@@ -144,7 +146,8 @@ return 0;
 
 ```
 
-<h1>==============================</h1>
+<h1 align=center>========================================================</h1>
+
 
 
 <h1 align=center> Readme of the fourth program "04-pizzas"</h1>
@@ -213,32 +216,142 @@ return 0;
 
 ```
 ## Pruebas
-<h1>==============================</h1>
+<h1 align=center>========================================================</h1>
+
 
 
 <h1 align=center> Readme of the fifth program "05-Temperaturas"</h1>
 
 
+```c++
+    int main (){
+    float temperatura;
+    int temAcum=0;
+    int contador =1;
+    int temMenor = 9999;
+    int temMayor = 0;
+    //start the condition for get into the temperatures
+    do
+    {
+        cout<<"Please, check in the temperatures"<<endl;
+        cin>>temperatura;
+        temAcum += temperatura;
+        contador ++;
+        //The program begins the process to determinate whats is the elderly or minor temperature
+        if (temperatura <= temMenor)
+        {
+            temMenor=temperatura;
+        }
+        if (temperatura >= temMayor)
+        {
+            temMayor=temperatura;
+        }
+        
+    } while (contador <= 6);
+    //The program shows at the user the average of all temperatures
+    cout<<"The average of the temperatures is: "<<temAcum/6<<endl;
+    //The program shows the maximum and minimum temperatures
+    cout<<"The minimum temperature is: "<<temMenor<<endl;
+    cout<<"The maximum temperature is: "<<temMayor<<endl;
+    
+    return 0;
+}
 
+```
+## tests
 
+<h1 align=center>========================================================</h1>
 
-
-
-
-
-<h1>==============================</h1>
 
 
 <h1 align=center> Readme of the sixth program "06-Compras"</h1>
 
 
+```c++
+    int main(){
+    float precioProducto;
+    int cantProducto;
+    float calculo;
+    float precio;
+    //The program starts the cycle 
+    do
+    {
+        //The user get into the cant of products that he will buy
+        cout<<"Enter the cant of productos, will you buy"<<endl;
+        cin >> cantProducto;
+        if (cantProducto != 0 and precio != 0)
+        {
+            cout<<"Enter the prize of the products"<<endl;
+            cin>>precio;
+        }  
+    //The program calculate the total purchase
+    calculo += (cantProducto*precio);
+    } while (cantProducto != 0 and precio != 0);
+    //The program shows at the user the total purchase
+    cout<<"You will pay: $"<<calculo<<endl;
+}
+```
 
-
-
-
-
-
-<h1>==============================</h1>
+## Test
+<h1 align=center>========================================================</h1>
 
 
 <h1 align=center> Readme of the seventh program "07-BinarioADecimal"</h1>
+
+```c++
+    int main(){
+    int numero;
+    string resultado;
+    cout<<"Enter one number in decimal, what do you want convert to binary"<<endl;
+    cin>>numero;
+    while (numero != 0)
+    {
+        if (numero%2==0)
+        {
+            resultado="0"+resultado;
+        }
+        else{
+            resultado="1"+resultado;
+        }
+        numero/=2;
+    }
+    cout<<" You number in binary is: "<<resultado<<endl;
+return 0;
+}
+```
+
+
+<h1 align=center>========================================================</h1>
+
+
+<h1 align=center> Readme of the seventh program "08-TablasDeMultiplicar"</h1>
+
+```c++
+    int main(){
+    int numero;
+    int limiteDeTabla;
+    int multiplicacion;
+    cout<<"Please check in, the limit of your table of multiply"<<endl;
+    cin>>limiteDeTabla;
+
+    cout<<"And now inser, the number for multiply"<<endl;
+    cin>>numero;
+    
+    for ( int i = 0; i <= limiteDeTabla; i++)
+    {
+        for ( int z = 0; z < 49; z++)
+        {
+            cout<<"-";
+        }
+        cout<<endl;
+        multiplicacion=i*numero;
+        cout<<"|\t"<<i<<"\tx\t"<<numero<<"\t=\t"<<multiplicacion<<"\t|"<<endl;
+    }
+    for ( int y = limiteDeTabla; y < 53; y++)
+        {
+            cout<<"-";
+        }
+        cout<<endl;
+return 0;
+}
+```
