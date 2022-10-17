@@ -391,7 +391,7 @@ return 0;
 
 <h1 align=center> Readme of the seventh program "08-TablasDeMultiplicar"</h1>
 
-
+<h2>this program allows the user to create a multiplication table, asking the user the limit of said table and by how much he wants to multiply said table</h2>
 
 ```c++
 int main(){
