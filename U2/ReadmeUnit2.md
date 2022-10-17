@@ -160,6 +160,12 @@ return 0;
 ## Third step: the program analyze the age what the user inserts ##
 ## Fourth step: the program shows at the user the discount that he will recibe. ##
 
+![Corrida de programa3](/imagenes/03-J.C1.png)
+![Corrida de programa3.1](/imagenes/03-J-C2.png)
+![Corrida de programa3.2](/imagenes/03-J-C3.png)
+
+## The last images shows the test that I do about the program 3.##
+
 <h1 align=center>======================================================</h1>
 
 
@@ -235,7 +241,8 @@ return 0;
 ## Third step: the program analyze the answer of the user and asks again what ingredients the user prefer##
 ## Fourth step: The program shows at the user the type of pizza what he selects and the ingredients ##
 
-## Pruebas
+## The last images shows the test that I do about the program 4.##
+
 <h1 align=center>======================================================</h1>
 
 
@@ -283,7 +290,7 @@ return 0;
 ## Third step: the program analyze the 6 temperarures ##
 ## Fourth step: the program shows at the user the average of all temperatures and the minimum and the maximum temperatures. ##
 
-## tests
+## The last images shows the test that I do about the program 5.##
 
 <h1 align=center>======================================================</h1>
 
@@ -322,7 +329,8 @@ return 0;
 ## Third step: the program analyze the the cant of products for known when the program will he stops ##
 ## Fourth step: the program shows at the user the total cost of all products and the correspondets prizes. ##
 
-## Test ##
+## The last images shows the test that I do about the program 6.##
+
 <h1 align=center>======================================================</h1>
 
 
@@ -361,6 +369,7 @@ return 0;
 ## Third step: the program converts the decimal number to binary number##
 ## Fourth step: the program shows at the user the binary number. ##
 
+## The last images shows the test that I do about the program 7.##
 
 <h1 align=center>======================================================</h1>
 
@@ -404,3 +413,5 @@ return 0;
 ## Second step: The user check in the limit and the number ##
 ## Third step: the program create the table whit the limit and the number what the user inserts ##
 ## Fourth step: the program shows at the user the multiplication table. ##
+
+## The last images shows the test that I do about the program 8.##
