@@ -241,7 +241,7 @@ return 0;
 ## Third step: the program analyze the answer of the user and asks again what ingredients the user prefer##
 ## Fourth step: The program shows at the user the type of pizza what he selects and the ingredients ##
 
-![Corrida de programa3](/imagenes/04-Piazza-C1.png)
+![Corrida de programa4](/imagenes/04-Piazza-C1.png)
 
 ## The last images shows the test that I do about the program 4.##
 
@@ -292,7 +292,7 @@ return 0;
 ## Third step: the program analyze the 6 temperarures ##
 ## Fourth step: the program shows at the user the average of all temperatures and the minimum and the maximum temperatures. ##
 
-![Corrida de programa3](/imagenes/05-Temp-C1.png)
+![Corrida de programa5](/imagenes/05-Temp-C1.png)
 
 ## The last images shows the test that I do about the program 5.##
 
@@ -333,7 +333,7 @@ return 0;
 ## Third step: the program analyze the the cant of products for known when the program will he stops ##
 ## Fourth step: the program shows at the user the total cost of all products and the correspondets prizes. ##
 
-![Corrida de programa3](/imagenes/06-Compras-C1.png)
+![Corrida de programa6](/imagenes/06-Compras-C1.png)
 
 ## The last images shows the test that I do about the program 6.##
 
@@ -375,7 +375,7 @@ return 0;
 ## Third step: the program converts the decimal number to binary number##
 ## Fourth step: the program shows at the user the binary number. ##
 
-![Corrida de programa3](/imagenes/07-BaD-C1.png)
+![Corrida de programa7](/imagenes/07-BaD-C1.png)
 
 ## The last images shows the test that I do about the program 7.##
 
@@ -422,6 +422,96 @@ return 0;
 ## Third step: the program create the table whit the limit and the number what the user inserts ##
 ## Fourth step: the program shows at the user the multiplication table. ##
 
-![Corrida de programa3](/imagenes/08-Tablas-C1.png)
+![Corrida de programa8](/imagenes/08-Tablas-C1.png)
 
 ## The last images shows the test that I do about the program 8.##
+
+<h1 align=center>======================================================</h1>
+
+
+<h1 align=center> Readme of the seventh program "09-Biseccion"</h1>
+
+```c++
+    #include <iostream>
+#include <cmath>
+#include <iomanip>
+
+using namespace std;
+
+float resolverEcuacion(float numero)
+{
+    return (pow(numero, 2) - numero - 12);
+}
+
+int imprimirlinea()
+{
+    for (int i = 0; i < 161; i++)
+    {
+        cout << "-";
+    }
+    cout << "\n";
+    return 0;
+}
+
+int main()
+{
+    // Declare the variables what the problem use.
+    int interador = 1;
+    int solucion = 1;
+    float a, b, c, ya, yb, yc = 1;
+
+    // Ask the user for the range
+    cout << "Enter the value A: ";
+    cin >> a;
+    cout << "Enter the value B: ";
+    cin >> b;
+
+    imprimirlinea();
+    cout << "| Interdor \t| a \t\t\t| b \t\t\t| c \t\t\t| y(a)\t\t\t| y(b)\t\t\t| y(c)\t\t\t| \n";
+    imprimirlinea();
+
+    while (yc >= 0.01 || yc <= -0.01)
+    {
+        c = (a + b) / 2;
+        ya = resolverEcuacion(a);
+        yb = resolverEcuacion(b);
+        yc = resolverEcuacion(c);
+        interador++;
+
+        cout << "| " << interador << "\t\t| " << fixed << setprecision(8) << a << "\t\t| " << b << "\t\t| " << c << "\t\t| " << ya << "\t\t| " << yb << "\t\t| " << yc << "\t\t| \n";
+        imprimirlinea();
+        if ((ya * yc) < 0)
+        {
+            b = c;
+        }
+        else
+        {
+            a = c;
+        }
+        // This "If" is for prevent a infinite cycle
+        if (a == b)
+        {
+            solucion = 0;
+            break;
+        }
+    }
+    if (solucion != 0)
+    {
+        cout << "The root is :" << c;
+        cout << "\n";
+    }
+    else
+    {
+        cout << "There is no root in that range. \n";
+    }
+    return 0;
+}
+
+```
+
+## First step: The program asks at the user for the value of A and B.##
+## Second step: The program shows the bisection ##
+
+![Corrida de programa9](/imagenes/09-B-C1.png)
+
+## The last image show the tests fo the program 9##
