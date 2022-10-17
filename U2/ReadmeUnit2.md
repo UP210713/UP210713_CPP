@@ -241,6 +241,8 @@ return 0;
 ## Third step: the program analyze the answer of the user and asks again what ingredients the user prefer##
 ## Fourth step: The program shows at the user the type of pizza what he selects and the ingredients ##
 
+![Corrida de programa3](/imagenes/04-Piazza-C1.png)
+
 ## The last images shows the test that I do about the program 4.##
 
 <h1 align=center>======================================================</h1>
@@ -290,6 +292,8 @@ return 0;
 ## Third step: the program analyze the 6 temperarures ##
 ## Fourth step: the program shows at the user the average of all temperatures and the minimum and the maximum temperatures. ##
 
+![Corrida de programa3](/imagenes/05-Temp-C1.png)
+
 ## The last images shows the test that I do about the program 5.##
 
 <h1 align=center>======================================================</h1>
@@ -328,6 +332,8 @@ return 0;
 ## Second step: The user check in the cant of products and the pize of the products ##
 ## Third step: the program analyze the the cant of products for known when the program will he stops ##
 ## Fourth step: the program shows at the user the total cost of all products and the correspondets prizes. ##
+
+![Corrida de programa3](/imagenes/06-Compras-C1.png)
 
 ## The last images shows the test that I do about the program 6.##
 
@@ -368,6 +374,8 @@ return 0;
 ## Second step: The user check in one decimal number ##
 ## Third step: the program converts the decimal number to binary number##
 ## Fourth step: the program shows at the user the binary number. ##
+
+![Corrida de programa3](/imagenes/07-BaD-C1.png)
 
 ## The last images shows the test that I do about the program 7.##
 
@@ -413,5 +421,7 @@ return 0;
 ## Second step: The user check in the limit and the number ##
 ## Third step: the program create the table whit the limit and the number what the user inserts ##
 ## Fourth step: the program shows at the user the multiplication table. ##
+
+![Corrida de programa3](/imagenes/08-Tablas-C1.png)
 
 ## The last images shows the test that I do about the program 8.##
