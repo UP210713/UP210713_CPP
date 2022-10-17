@@ -122,6 +122,8 @@
 
 <h1 align=center> Readme of the third program "03-juegos"</h1>
 
+<h2>In this program the program asks at the user for his age, and the profram determines how he can entrance in 3 categories, "free", pay $5, and $10</h2>
+
 ``` c++
 
     int main (){
@@ -171,6 +173,8 @@ return 0;
 
 
 <h1 align=center> Readme of the fourth program "04-pizzas"</h1>
+
+<h2>this program asks the user what type of pizza he wants, likewise with what ingredients he wants his type of pizza and at the end it shows the user his final selection</h2>
 
 ``` c++
 
@@ -251,6 +255,7 @@ return 0;
 
 <h1 align=center> Readme of the fifth program "05-Temperaturas"</h1>
 
+<h2>This programs asks t the user for 6 temperatures and program determines the maximum temperature and the minium and the average of the all temperatures and the final the program shows ante the user the all results</h2>
 
 ```c++
     int main (){
@@ -342,6 +347,8 @@ return 0;
 
 <h1 align=center> Readme of the seventh program "07-BinarioADecimal"</h1>
 
+<h2>This programa allows at the user one number in decimal and the program converts that number in a binary sistem and shows the result in binary, only for numbers greater than 0</h2>
+
 ```c++
 #include<iostream>
 using namespace std;
@@ -383,6 +390,8 @@ return 0;
 
 
 <h1 align=center> Readme of the seventh program "08-TablasDeMultiplicar"</h1>
+
+
 
 ```c++
 int main(){
