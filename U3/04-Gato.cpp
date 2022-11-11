@@ -6,7 +6,7 @@ using namespace std;
 int row=0, col=0;
 char estructuraGato[6][11];
 int gameplayArea [3][3] = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}};
-int turnoDeJuego;
+int turnoDeJuego =1;
 
 int main(){
     bool gameOver = false;
@@ -120,5 +120,13 @@ bool comprobarjugada(int Juego)
 }
 
 void ponerElJuego(int jugada){
+    char caracterDeJugada;
+    if (turnoDeJuego %2 == 0)
+    {
+        caracterDeJugada = 'X';
+    }
+    else{
+        caracterDeJugada = 'O';
+    }
     
 }
