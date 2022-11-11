@@ -123,21 +123,21 @@ void hacertablero()
             }
         }
     }
-    for (int row1 = 0; row1 < 6; row1++)
+    for (int Row2 = 0; Row2 < 6; Row2++)
     {
-        for (int col1 = 0; col1 < 11; col1++)
+        for (int Col2 = 0; Col2 < 11; Col2++)
         {
-            if (estructuragato[row1][col1] == 'X')
+            if (estructuragato[Row2][Col2] == 'X')
             {
-                cout << "\033[0;31m" << estructuragato[row1][col1] << "\033[0m";
+                cout << "\033[0;31m" << estructuragato[Row2][Col2] << "\033[0m";
             }
-            else if (estructuragato[row1][col1] == 'O')
+            else if (estructuragato[Row2][Col2] == 'O')
             {
-                cout << "\033[0;32m" << estructuragato[row1][col1] << "\033[0m";
+                cout << "\033[0;32m" << estructuragato[Row2][Col2] << "\033[0m";
             }
             else
             {
-                cout << estructuragato[row1][col1];
+                cout << estructuragato[Row2][Col2];
             }
         }
         cout << endl;
