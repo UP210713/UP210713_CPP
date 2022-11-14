@@ -12,7 +12,7 @@ void ponerElJuego(int jugada, string, string);
 bool winner(string);
 
 
-int row=0, col=0;
+int row, col;
 char estructuraGato[6][11];
 int gameplayArea [3][3] = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}};
 int turnoDeJuego =1;
@@ -23,10 +23,16 @@ const string PC = "Maquina";
 const string HUMANO = "Humano";
 const string TABLERO = "Real";
 const string TABLEROIMAG = "Imaginario";
+
+int jugadaCPU();
+void matrizCPU();
+int mejorJuego(string);
+
+
 int main(){
     bool gameOver = false;
     int jugada;
-    bool casillaOcupada;
+    bool casillaOcupada = true;
     int mode;
     cout << "Welcome to the game of toc tac toe"<<endl;
     cout << "Please chose your mode to play"<<endl;
@@ -35,7 +41,35 @@ int main(){
     cin>>mode;
     if (mode==1)
     {
-        
+        do
+        {
+            system("clear");
+            if (turnoDeJuego % 2 == !0)
+            {
+                do
+                {
+                    hacerTablero();
+                    jugada = creaTuJugada();
+                    casillaOcupada = comprobarJuego(jugada, TABLERO);
+                    if (casillaOcupada == true)
+                    {
+                        system("clear");
+                        cout << "Trye again \n";
+                    }
+                } while (casillaOcupada == true);
+                ponerElJuego(jugada, TABLERO, HUMANO);
+                gameOver = winner(TABLERO);
+            }
+            else
+            {
+                hacerTablero();
+                jugada = jugadaCPU();
+                ponerElJuego(jugada, TABLERO, PC);
+                gameOver = winner(TABLERO);
+            }
+        } while (gameOver == false and turnoDeJuego < 10);
+        system("clear");
+        hacerTablero();    
     }
     else if (mode==2)
     {
@@ -53,7 +87,7 @@ int main(){
                     cout << "Trye again \n";
                 }
             } while (casillaOcupada == true);
-            comprobarJuego(jugada, TABLERO, HUMANO);
+            ponerElJuego(jugada, TABLERO, HUMANO);
             gameOver = winner(TABLERO);
         } while (gameOver == false and turnoDeJuego < 10);
         system("clear");
@@ -152,6 +186,7 @@ int creaTuJugada()
 
 bool comprobarJuego(int juego, string Tablero)
 {
+    bool casillaLista = false;
     int fila = 0, columna = 0;
     for (int numJuego = 1; numJuego < 10; numJuego++)
     {
@@ -171,15 +206,25 @@ bool comprobarJuego(int juego, string Tablero)
             }
         }
     }
-    
-    if (gameplayArea[row][col] == 'O' || gameplayArea[row][col] == 'X')
+    if (Tablero == TABLERO)
     {
-        return true;
+        if (gameplayArea[row][col] == 'O' || gameplayArea[row][col] == 'X')
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
-    else
+        else if (Tablero == TABLEROIMAG)
     {
-        return false;
+        if (gameplayAreaCpu[row][col] == 'O' || gameplayAreaCpu[row][col] == 'X')
+        {
+            casillaLista = true;
+        }
     }
+    return casillaLista;
 }
 
 void ponerElJuego(int jugada, string Tablero, string Jugador){
@@ -196,8 +241,23 @@ void ponerElJuego(int jugada, string Tablero, string Jugador){
     {
         if (jugada == numjuada)
         {
-            gameplayArea[fila][columna] = caracterDeJugada;
-            break;
+            if (Tablero==TABLERO){
+                gameplayArea[fila][columna] = caracterDeJugada;
+                break;
+            }
+            else if (Tablero == TABLEROIMAG)
+            {
+                if (Jugador == HUMANO)
+                {
+                    caracterDeJugada = 'O';
+                }
+                else if (Jugador == PC)
+                {
+                    caracterDeJugada = 'X';
+                }
+                gameplayAreaCpu[fila][columna] = caracterDeJugada;
+                break;
+            }
         }
         else
         {
@@ -209,7 +269,9 @@ void ponerElJuego(int jugada, string Tablero, string Jugador){
             }
         }
     }
-    turnoDeJuego++;
+    if (Tablero == TABLERO){
+        turnoDeJuego++;
+    }
 }
 
 bool winner(string tablero){
@@ -265,5 +327,74 @@ bool winner(string tablero){
             win = true;
         }
     }
-    return winner;
+    return win;
+}
+
+int jugadaCPU(){
+    bool casillaLlenada = true;
+    int jugada;
+    srand(time(NULL));
+    jugada = mejorJuego(PC);
+    if (jugada != -1)
+    {
+        return jugada;
+    }
+    jugada = mejorJuego(HUMANO);
+    if (jugada != -1)
+    {
+        return jugada;
+    }
+    while (casillaLlenada == true)
+    {
+        jugada= 1 + rand() % 9;
+        casillaLlenada= comprobarJuego (jugada,TABLERO);
+    }
+    return jugada;
+}
+void matrizCPU(){
+    for (int fila = 0; fila < 3; fila++)
+    {
+        for (int columna = 0; columna < 3; columna++)
+        {
+            gameplayAreaCpu[fila][columna] = gameplayAreaCpu[fila][columna];
+        }
+    }
+}
+
+int mejorJuego(string jugador)
+{
+    bool casillaOcupada = false;
+    bool gameover = false;
+    int jugada = 0;
+    matrizCPU();
+    if (jugador == PC)
+    {
+        do
+        {
+            jugada++;
+            casillaOcupada=comprobarJuego(jugada, TABLEROIMAG);
+            if (casillaOcupada == false){
+                ponerElJuego(jugada, TABLEROIMAG, PC);
+                gameover = winner(TABLEROIMAG);
+            }
+            matrizCPU();
+        } while (jugada <= 9 && gameover == false);
+    } 
+    else if (jugador == HUMANO)
+    {
+        do
+        {
+            jugada++;
+            casillaOcupada=comprobarJuego(jugada, TABLEROIMAG);
+            if (casillaOcupada== false){
+                ponerElJuego(jugada, TABLEROIMAG, HUMANO);
+                gameover = winner(TABLEROIMAG);
+            }
+            matrizCPU();
+        } while (jugada <= 9 && gameover == false);
+    }
+    if (jugada >= 10){
+        jugada= -1;
+    }
+    return jugada;
 }
