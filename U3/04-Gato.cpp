@@ -30,11 +30,16 @@ int mejorJuego(string);
 
 
 int main(){
+    
     bool gameOver = false;
     int jugada;
     bool casillaOcupada = true;
     int mode;
+    int respuesta;
+    cout << "**********************************"<<endl;
     cout << "Welcome to the game of toc tac toe"<<endl;
+    do{
+    cout << "**********************************"<<endl;   
     cout << "Please chose your mode to play"<<endl;
     cout << "1) Player 1 vs CPU"<<endl;
     cout << "2) Player 1 vs Player 2"<<endl;
@@ -116,9 +121,15 @@ int main(){
     {
         cout << "Tie" << endl;
     }
-
+    cout << "Do you wanna play again" << endl;
+    cout << "Chose 1 for yes or 2 for no" << endl;
+    cin>>respuesta;
+    }while(respuesta == 1);
     return 0;
+
 }
+
+
 void hacerTablero()
 {
    row=0;
