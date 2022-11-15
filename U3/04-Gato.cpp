@@ -210,11 +210,7 @@ bool comprobarJuego(int juego, string Tablero)
     {
         if (gameplayArea[row][col] == 'O' || gameplayArea[row][col] == 'X')
         {
-            return true;
-        }
-        else
-        {
-            return false;
+           casillaLista = true;
         }
     }
         else if (Tablero == TABLEROIMAG)
@@ -356,7 +352,7 @@ void matrizCPU(){
     {
         for (int columna = 0; columna < 3; columna++)
         {
-            gameplayAreaCpu[fila][columna] = gameplayAreaCpu[fila][columna];
+            gameplayAreaCpu[fila][columna] = gameplayArea[fila][columna];
         }
     }
 }
