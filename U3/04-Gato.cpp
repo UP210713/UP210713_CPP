@@ -38,7 +38,8 @@ int main(){
     int respuesta;
     cout << "**********************************"<<endl;
     cout << "Welcome to the game of toc tac toe"<<endl;
-    do{
+do
+{
     cout << "**********************************"<<endl;   
     cout << "Please chose your mode to play"<<endl;
     cout << "1) Player 1 vs CPU"<<endl;
@@ -109,7 +110,7 @@ int main(){
         {
             if (mode == 1)
             {
-                cout << "PC won";
+                cout << "PC won"<< endl;
             }
             else
             {
@@ -124,7 +125,8 @@ int main(){
     cout << "Do you wanna play again" << endl;
     cout << "Chose 1 for yes or 2 for no" << endl;
     cin>>respuesta;
-    }while(respuesta == 1);
+}while(respuesta == 1);
+
     return 0;
 
 }
@@ -181,6 +183,7 @@ void hacerTablero()
         }
         cout << endl;
     }
+
 }
 
 
