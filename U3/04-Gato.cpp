@@ -1,12 +1,18 @@
+/*
+Date: 07/11/2022
+Author: Samuel Salvador Soto Torres
+Email: up210713@alumnos.upa.edu.mx
+Description: Tic Tac Toe game 
+*/
 #include <iostream>
 #include <stdalign.h>
 #include <time.h>
-
+#include <stdlib.h>
 
 using namespace std;
 
-void hacerTablero();
-int creaTuJugada();
+void makeBoard();
+int createYourPlay();
 bool comprobarJuego(int juego, string);
 void ponerElJuego(int jugada, string, string);
 bool winner(string);
@@ -38,8 +44,7 @@ int main(){
     int respuesta;
     cout << "**********************************"<<endl;
     cout << "Welcome to the game of toc tac toe"<<endl;
-do
-{
+
     cout << "**********************************"<<endl;   
     cout << "Please chose your mode to play"<<endl;
     cout << "1) Player 1 vs CPU"<<endl;
@@ -54,8 +59,8 @@ do
             {
                 do
                 {
-                    hacerTablero();
-                    jugada = creaTuJugada();
+                    makeBoard();
+                    jugada = createYourPlay();
                     casillaOcupada = comprobarJuego(jugada, TABLERO);
                     if (casillaOcupada == true)
                     {
@@ -68,14 +73,14 @@ do
             }
             else
             {
-                hacerTablero();
+                makeBoard();
                 jugada = jugadaCPU();
                 ponerElJuego(jugada, TABLERO, PC);
                 gameOver = winner(TABLERO);
             }
         } while (gameOver == false and turnoDeJuego < 10);
         system("clear");
-        hacerTablero();    
+        makeBoard();    
     }
     else if (mode==2)
     {
@@ -84,8 +89,8 @@ do
             system("clear");
             do
             {
-                hacerTablero();
-                jugada = creaTuJugada();
+                makeBoard();
+                jugada = createYourPlay();
                 casillaOcupada = comprobarJuego(jugada, TABLERO);
                 if (casillaOcupada == true)
                 {
@@ -97,7 +102,7 @@ do
             gameOver = winner(TABLERO);
         } while (gameOver == false and turnoDeJuego < 10);
         system("clear");
-        hacerTablero();
+        makeBoard();
     }
 
     if (gameOver == true)
@@ -122,17 +127,14 @@ do
     {
         cout << "Tie" << endl;
     }
-    cout << "Do you wanna play again" << endl;
-    cout << "Chose 1 for yes or 2 for no" << endl;
-    cin>>respuesta;
-}while(respuesta == 1);
+
 
     return 0;
 
 }
 
-
-void hacerTablero()
+//This function make the board for the game and put the multiple options of moves
+void makeBoard()
 {
    row=0;
    col=0;
@@ -186,18 +188,18 @@ void hacerTablero()
 
 }
 
-
-int creaTuJugada()
+//In this function the program asks at the user fue his move
+int createYourPlay()
 {
-    int jugadaSeleccionada;
+    int selectPlay;
     do
     {
         cout << "Give  me your move: ";
-        cin >> jugadaSeleccionada;
-    } while (jugadaSeleccionada > 9 && jugadaSeleccionada < 0);
-    return jugadaSeleccionada;
+        cin >> selectPlay;
+    } while (selectPlay > 9 && selectPlay < 0);
+    return selectPlay;
 }
-
+//This function have the responsability of check the options of move and determinates, if the box is filled
 bool comprobarJuego(int juego, string Tablero)
 {
     bool casillaLista = false;
