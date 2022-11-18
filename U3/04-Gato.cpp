@@ -13,22 +13,22 @@ using namespace std;
 
 void makeBoard();
 int createYourPlay();
-bool comprobarJuego(int juego, string);
-void ponerElJuego(int jugada, string, string);
+bool checkGame(int juego, string);
+void putTheGame(int jugada, string, string);
 bool winner(string);
 
 
 int row, col;
-char estructuraGato[6][11];
+char structureGame[6][11];
 int gameplayArea [3][3] = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}};
-int turnoDeJuego =1;
+int turnOfPlay =1;
 char gameplayAreaCpu[3][3];
 
 
-const string PC = "Maquina";
+const string CPU = "Maquina";
 const string HUMANO = "Humano";
 const string TABLERO = "Real";
-const string TABLEROIMAG = "Imaginario";
+const string imaginaryBoard = "Imaginario";
 
 int jugadaCPU();
 void matrizCPU();
@@ -55,30 +55,30 @@ int main(){
         do
         {
             system("clear");
-            if (turnoDeJuego % 2 == !0)
+            if (turnOfPlay % 2 == !0)
             {
                 do
                 {
                     makeBoard();
                     jugada = createYourPlay();
-                    casillaOcupada = comprobarJuego(jugada, TABLERO);
+                    casillaOcupada = checkGame(jugada, TABLERO);
                     if (casillaOcupada == true)
                     {
                         system("clear");
                         cout << "Trye again \n";
                     }
                 } while (casillaOcupada == true);
-                ponerElJuego(jugada, TABLERO, HUMANO);
+                putTheGame(jugada, TABLERO, HUMANO);
                 gameOver = winner(TABLERO);
             }
             else
             {
                 makeBoard();
                 jugada = jugadaCPU();
-                ponerElJuego(jugada, TABLERO, PC);
+                putTheGame(jugada, TABLERO, CPU);
                 gameOver = winner(TABLERO);
             }
-        } while (gameOver == false and turnoDeJuego < 10);
+        } while (gameOver == false and turnOfPlay < 10);
         system("clear");
         makeBoard();    
     }
@@ -91,23 +91,23 @@ int main(){
             {
                 makeBoard();
                 jugada = createYourPlay();
-                casillaOcupada = comprobarJuego(jugada, TABLERO);
+                casillaOcupada = checkGame(jugada, TABLERO);
                 if (casillaOcupada == true)
                 {
                     system("clear");
                     cout << "Trye again \n";
                 }
             } while (casillaOcupada == true);
-            ponerElJuego(jugada, TABLERO, HUMANO);
+            putTheGame(jugada, TABLERO, HUMANO);
             gameOver = winner(TABLERO);
-        } while (gameOver == false and turnoDeJuego < 10);
+        } while (gameOver == false and turnOfPlay < 10);
         system("clear");
         makeBoard();
     }
 
     if (gameOver == true)
     {
-        if (turnoDeJuego % 2 == 0)
+        if (turnOfPlay % 2 == 0)
         {
             cout << "Player 1 won" << endl;
         }
@@ -115,7 +115,7 @@ int main(){
         {
             if (mode == 1)
             {
-                cout << "PC won"<< endl;
+                cout << "CPU won"<< endl;
             }
             else
             {
@@ -143,15 +143,15 @@ void makeBoard()
         {
             if (Col ==3 || Col ==7)
             {
-                estructuraGato[Row][Col] = '|';
+                structureGame[Row][Col] = '|';
             }
             else if (Row ==1 || Row ==3)
             {
-                estructuraGato[Row][Col] = '_';
+                structureGame[Row][Col] = '_';
             }
                         else if (Row != 5 && (Col == 1 || Col == 5 || Col == 9))
             {
-                estructuraGato[Row][Col] = gameplayArea[row][col];
+                structureGame[Row][Col] = gameplayArea[row][col];
                 col++;
                 if (col == 3)
                 {
@@ -161,7 +161,7 @@ void makeBoard()
             }
             else
             {
-                estructuraGato[Row][Col] = ' ';
+                structureGame[Row][Col] = ' ';
             }
             
         }
@@ -170,17 +170,17 @@ void makeBoard()
     {
         for (int Col2 = 0; Col2 < 11; Col2++)
         {
-            if (estructuraGato[Row2][Col2] == 'X')
+            if (structureGame[Row2][Col2] == 'X')
             {
-                cout << "\033[0;31m" << estructuraGato[Row2][Col2] << "\033[0m";
+                cout << "\033[0;31m" << structureGame[Row2][Col2] << "\033[0m";
             }
-            else if (estructuraGato[Row2][Col2] == 'O')
+            else if (structureGame[Row2][Col2] == 'O')
             {
-                cout << "\033[0;32m" << estructuraGato[Row2][Col2] << "\033[0m";
+                cout << "\033[0;32m" << structureGame[Row2][Col2] << "\033[0m";
             }
             else
             {
-                cout << estructuraGato[Row2][Col2];
+                cout << structureGame[Row2][Col2];
             }
         }
         cout << endl;
@@ -200,7 +200,7 @@ int createYourPlay()
     return selectPlay;
 }
 //This function have the responsability of check the options of move and determinates, if the box is filled
-bool comprobarJuego(int juego, string Tablero)
+bool checkGame(int juego, string Tablero)
 {
     bool casillaLista = false;
     int fila = 0, columna = 0;
@@ -229,7 +229,7 @@ bool comprobarJuego(int juego, string Tablero)
            casillaLista = true;
         }
     }
-        else if (Tablero == TABLEROIMAG)
+        else if (Tablero == imaginaryBoard)
     {
         if (gameplayAreaCpu[row][col] == 'O' || gameplayAreaCpu[row][col] == 'X')
         {
@@ -239,9 +239,12 @@ bool comprobarJuego(int juego, string Tablero)
     return casillaLista;
 }
 
-void ponerElJuego(int jugada, string Tablero, string Jugador){
+void putTheGame(int jugada, string Tablero, string Jugador){
     char caracterDeJugada;
-    if (turnoDeJuego %2 == 0)
+
+    
+
+    if (turnOfPlay %2 == 0)
     {
         caracterDeJugada = 'X';
     }
@@ -257,13 +260,13 @@ void ponerElJuego(int jugada, string Tablero, string Jugador){
                 gameplayArea[fila][columna] = caracterDeJugada;
                 break;
             }
-            else if (Tablero == TABLEROIMAG)
+            else if (Tablero == imaginaryBoard)
             {
                 if (Jugador == HUMANO)
                 {
                     caracterDeJugada = 'O';
                 }
-                else if (Jugador == PC)
+                else if (Jugador == CPU)
                 {
                     caracterDeJugada = 'X';
                 }
@@ -282,7 +285,7 @@ void ponerElJuego(int jugada, string Tablero, string Jugador){
         }
     }
     if (Tablero == TABLERO){
-        turnoDeJuego++;
+        turnOfPlay++;
     }
 }
 
@@ -303,7 +306,7 @@ bool winner(string tablero){
                 break;
             }
         }
-        else if (tablero == TABLEROIMAG)
+        else if (tablero == imaginaryBoard)
         {
             if (gameplayAreaCpu[posicion][0] == gameplayAreaCpu[posicion][1] && gameplayAreaCpu[posicion][posicion] == gameplayAreaCpu[posicion][2] && gameplayAreaCpu[posicion][1] == gameplayAreaCpu[posicion][2])
             {
@@ -328,7 +331,7 @@ bool winner(string tablero){
             win = true;
         }
     } 
-    else if (tablero == TABLEROIMAG)
+    else if (tablero == imaginaryBoard)
     {
         if (gameplayAreaCpu[0][0] == gameplayAreaCpu[1][1] && gameplayAreaCpu[0][0] == gameplayAreaCpu[2][2] && gameplayAreaCpu[1][1] == gameplayAreaCpu[2][2])
         {
@@ -346,7 +349,7 @@ int jugadaCPU(){
     bool casillaLlenada = true;
     int jugada;
     srand(time(NULL));
-    jugada = mejorJuego(PC);
+    jugada = mejorJuego(CPU);
     if (jugada != -1)
     {
         return jugada;
@@ -359,7 +362,7 @@ int jugadaCPU(){
     while (casillaLlenada == true)
     {
         jugada= 1 + rand() % 9;
-        casillaLlenada= comprobarJuego (jugada,TABLERO);
+        casillaLlenada= checkGame (jugada,TABLERO);
     }
     return jugada;
 }
@@ -379,15 +382,15 @@ int mejorJuego(string jugador)
     bool gameover = false;
     int jugada = 0;
     matrizCPU();
-    if (jugador == PC)
+    if (jugador == CPU)
     {
         do
         {
             jugada++;
-            casillaOcupada=comprobarJuego(jugada, TABLEROIMAG);
+            casillaOcupada=checkGame(jugada, imaginaryBoard);
             if (casillaOcupada == false){
-                ponerElJuego(jugada, TABLEROIMAG, PC);
-                gameover = winner(TABLEROIMAG);
+                putTheGame(jugada, imaginaryBoard, CPU);
+                gameover = winner(imaginaryBoard);
             }
             matrizCPU();
         } while (jugada <= 9 && gameover == false);
@@ -397,10 +400,10 @@ int mejorJuego(string jugador)
         do
         {
             jugada++;
-            casillaOcupada=comprobarJuego(jugada, TABLEROIMAG);
+            casillaOcupada=checkGame(jugada, imaginaryBoard);
             if (casillaOcupada== false){
-                ponerElJuego(jugada, TABLEROIMAG, HUMANO);
-                gameover = winner(TABLEROIMAG);
+                putTheGame(jugada, imaginaryBoard, HUMANO);
+                gameover = winner(imaginaryBoard);
             }
             matrizCPU();
         } while (jugada <= 9 && gameover == false);
@@ -410,3 +413,4 @@ int mejorJuego(string jugador)
     }
     return jugada;
 }
+

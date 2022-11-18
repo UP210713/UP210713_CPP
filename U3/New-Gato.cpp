@@ -15,6 +15,7 @@ Params: jugada valor numérico del 1 -9
         Tablero es el tipo de tablero a jugar 
         jugador es el tipo de jugador 
 */
+void eligeCaracter();
 bool ganar(string);
 int obtenerJugadaPC();
 void clonarMatriz();
@@ -30,7 +31,7 @@ const string PC = "Maquina";
 const string HUMANO = "Humano";
 const string TABLERO = "Real";
 const string TABLEROIMAG = "Imaginario";
-
+int caracter;
 int main()
 {
 
@@ -38,6 +39,7 @@ int main()
     int jugada;
     bool casillaOcupada = true;
     int modo;
+    int seleccion;
     cout << "Tic tac toe \n";
     cout << "1 Singleplayer \n";
     cout << "2 Multiplayer \n";
@@ -48,11 +50,17 @@ int main()
         do
         {
             system("clear");
-            if (turnoJugador % 2 == !0)
-            {
+            
+
+            //cout << "elige tu caracter de jugada \n";
+            //cin >> caracter;
+
+                if (turnoJugador % 2 == !0)
+                {
                 do
                 {
                     hacertablero();
+
                     jugada = seleccionarJugada();
                     casillaOcupada = comprobarJugada(jugada, TABLERO);
                     if (casillaOcupada == true)
@@ -226,9 +234,16 @@ bool comprobarJugada(int jugada, string Tablero)
     return casillaOcupada;
 }
 
+void eligeCaracter(){
+
+    
+    
+}
+
 void colocarJugada(int jugada, string Tablero, string Jugador)
 {
     char valorJugada;
+
     if (turnoJugador % 2 == 0)
     {
         valorJugada = 'X';
