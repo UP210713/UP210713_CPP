@@ -25,10 +25,10 @@ int turnOfPlay =1;
 char gameplayAreaCpu[3][3];
 
 
-const string CPU = "Maquina";
+const string CPU = "machine";
 const string human = "human";
-const string realBoard = "Real";
-const string imaginaryBoard = "Imaginario";
+const string realBoard = "real";
+const string imaginaryBoard = "imaginary";
 
 int playCpu();
 void matrixCpu();
@@ -103,6 +103,11 @@ int main(){
         } while (gameOver == false and turnOfPlay < 10);
         system("clear");
         makeBoard();
+    }
+
+    else  {
+        system("clear");
+        cout << "Trye again \n";
     }
 
     if (gameOver == true)
