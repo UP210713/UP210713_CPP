@@ -20,10 +20,7 @@
 
 ## __📘&nbsp;Flowchart__
 
+![flowchart](/imagenes/diagrama.png)
 
-
-## __📘&nbsp;Code and tests of the program__     
-
-
-5:
+## __📘&nbsp;Code and tests of the program__          
 CONCLUSIONES DEL EJERCICIO
