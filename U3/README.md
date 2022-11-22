@@ -22,6 +22,11 @@
 
 ![flowchart](/imagenes/diagrama.png)
 
+## __📘&nbsp;Considerations__
+
+1. The player cannot enter any decimal number or letter
+2. The player cannot choose the character with which he is going to play
+
 ## __📘&nbsp;Code and tests of the program__          
 
 ![Run game 1](/imagenes/Gato-1C.png)
