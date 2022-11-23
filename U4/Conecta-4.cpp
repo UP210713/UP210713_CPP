@@ -22,3 +22,12 @@ bool checkPlay();//samuel
 
  }
 
+int selectPlay(){
+    int selectPlay;
+    do
+    {
+        cout << "Give  me your move: "<< endl;
+        cout << "Please only give entire numbers: "<< endl;
+    } while (selectPlay > 49 && selectPlay < 0);
+    return selectPlay;
+}
