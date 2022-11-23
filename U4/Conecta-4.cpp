@@ -70,5 +70,15 @@ bool checkPlay();//samuel
     }
 
 }
-
+int selecPlay()
+{
+    int selectPlay;
+    do
+    {
+        cout << "Give  me your move: "<< endl;
+        cout << "Please only give entire numbers: "<< endl;
+        cin >> selectPlay;
+    } while (selectPlay > 9 && selectPlay < 0);
+    return selectPlay;
+}
 
