@@ -7,7 +7,23 @@ Author: Samuel Salvador Soto Torres
 Description: Conect 4
 */
 
+/*  BOARD
+
+  1   2   3   4   5   6   7
+|   |   |   |   |   |   |   |
+|   |   |   |   |   |   |   |  
+|   |   |   |   |   |   |   |   
+|   |   |   |   |   |   |   |   
+|   |   |   |   |   |   |   |  
+|   |   |   |   |   |   |   |   
+|   |   |   |   |   |   |   |   
+|   |   |   |   |   |   |   |  
+
+
+*/
+
 #include <iostream>
+
 
 using namespace std;
 
@@ -20,5 +36,39 @@ bool checkPlay();//samuel
 // funcion principal 
  int main(){
 
+    makeBoard();
+
  }
+
+ void makeBoard(){
+
+    int row,col,x=0,y=0;
+
+    cout<<"  1    2    3    4    5    6    7    "<<endl;
+
+    for (row=0;row<=8;row++){
+        
+        for(col=0;col<=28;col++){
+
+            if(col==0||col==4||col==8||col==12||col==16||col==20||col==24||col==28){
+                cout<<"|";
+            }
+            else if(col==3||col==7||col==11||col==15||col==19||col==23||col==27){
+
+                
+                x++;
+
+            }
+            else {
+                cout<<"  ";
+            }
+        }
+
+        cout<<endl;
+
+       
+    }
+
+}
+
 
