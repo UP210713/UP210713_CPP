@@ -33,27 +33,26 @@ int mainMenu();//Osiris
 void makeBoard();//Jorge
 int selectPlay();//Samuel
 bool checkPlay();//samuel
-void playGame(int);//Jorge
-
-void gotoxy(int,int);
+void playGame();//Jorge
+void gotoxy(int x,int y);
 
 int turnPlayer=1;
+int gameArea[7][7];
 
 
 // funcion principal 
  int main(){
-    menu();
+
     mainMenu();
-   // makeBoard();
+    makeBoard();
+    playGame();
 
  }
 
 //FUNCTION THAT CREATES THE BOARD OF THE GAME
-void gotoxy(int x,int y){
-    cout<<"\033["<<y<<"i"<<x<<"f";
-}
 
- void makeBoard(){
+
+void makeBoard(){
 
     int row,col,x=0,y=0;
 
@@ -113,7 +112,7 @@ int selectPlay(){
             gamer=2;
         }
         
-        cout << "PLAYER " << gamer <<" Select your play: 1-6 : "<<endl;
+        cout << "PLAYER " << gamer <<" Select your play: 1-7 : "<<endl;
         cin >> turn;
     } while (turn < 0 || turn > 9);
 
@@ -134,11 +133,25 @@ bool checkPlay(int play){
 }
 
 int mainMenu(){
-    gotoxy(15,3);
+    
+    /*
+    1.MEJORAR MENU
+    2 INVESTIGAR COLORES
+    3 CONTENIDO EN LINEA
+    4 AÑADIR LAS REGLAS 
+    */
+   
     int gameMode;
+    gotoxy(15,3);
     cout<<"Welcome to Connect 4"<<endl;
-    cout<<"Choose the game mode: 1.vs the PC or 2.vs another player  "
+    cout<<"Choose the game mode: 1.vs the PC "<<endl <<" 2.vs another player  "<<endl;
     cin>>gameMode;
     return gameMode;
 }
+
+void gotoxy(int x,int y){
+    cout<<"\033["<<y<<"i"<<x<<"f";
+}
+
+
 
