@@ -28,7 +28,7 @@ Description: Conect 4
 using namespace std;
 
 //MAIN FUNCTIONS OF THE CODE
-int menu();//Osiris
+int mainMenu();//Osiris
 void makeBoard();//Jorge
 int selectPlay();//Samuel
 bool checkPlay();//samuel
@@ -81,7 +81,7 @@ void gotoxy(int x,int y){
 }
 
 
-int menu(){
+int mainMenu(){
     gotoxy(15,3);
     int gameMode;
     cout<<"Welcome to Connect 4"<<endl;
