@@ -27,10 +27,14 @@ Description: Conect 4
 
 using namespace std;
 
+//MAIN FUNCTIONS OF THE CODE
 int mainMenu();//Osiris
 void makeBoard();//Jorge
 int selectPlay();//Samuel
 bool checkPlay();//samuel
+
+char areaGame[7][7]={{'1','2','3','4','5','6','7'},{'8','9','10','11','12','13','14'},{'15','16','17','18','19','20','21'},
+                {'22','23','24','25','26','27','28'},{'29','30','31','32','33','34','35'}{'36','37','38','39','40','41','42'},{'43','44','45','46','47','48','49'}};
 
 
 // funcion principal 
@@ -70,15 +74,5 @@ bool checkPlay();//samuel
     }
 
 }
-int selecPlay()
-{
-    int selectPlay;
-    do
-    {
-        cout << "Give  me your move: "<< endl;
-        cout << "Please only give entire numbers: "<< endl;
-        cin >> selectPlay;
-    } while (selectPlay > 9 && selectPlay < 0);
-    return selectPlay;
-}
+
 
