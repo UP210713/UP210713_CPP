@@ -35,19 +35,24 @@ int selectPlay();//Samuel
 bool checkPlay();//samuel
 void playGame(int);//Jorge
 
+void gotoxy(int,int);
 
 int turnPlayer=1;
 
 
 // funcion principal 
  int main(){
-
+    menu();
     mainMenu();
-    makeBoard();
+   // makeBoard();
 
  }
 
 //FUNCTION THAT CREATES THE BOARD OF THE GAME
+void gotoxy(int x,int y){
+    cout<<"\033["<<y<<"i"<<x<<"f";
+}
+
  void makeBoard(){
 
     int row,col,x=0,y=0;
@@ -116,7 +121,7 @@ int selectPlay(){
 
 }
 //FUNCTION THAT CHECK IF THE PLAY IS VALID
-/bool checkPlay(int play){
+bool checkPlay(int play){
      int row = play / 10, col = play - 1;
     if (gameArea[row][col] == 'X' || gameArea[row][col] == 'O')
     {
@@ -128,4 +133,12 @@ int selectPlay(){
     }
 }
 
+int mainMenu(){
+    gotoxy(15,3);
+    int gameMode;
+    cout<<"Welcome to Connect 4"<<endl;
+    cout<<"Choose the game mode: 1.vs the PC or 2.vs another player  "
+    cin>>gameMode;
+    return gameMode;
+}
 
