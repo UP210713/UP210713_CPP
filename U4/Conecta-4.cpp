@@ -35,6 +35,7 @@ int selectPlay();//Samuel
 bool checkPlay();//samuel
 void playGame();//Jorge
 void gotoxy(int x,int y);
+void instructions();
 
 int turnPlayer=1;
 int gameArea[7][7];
@@ -132,25 +133,46 @@ bool checkPlay(int play){
     }
 }
 
+
 int mainMenu(){
-    
     /*
     1.MEJORAR MENU
     2 INVESTIGAR COLORES
     3 CONTENIDO EN LINEA
     4 AÑADIR LAS REGLAS 
     */
-   
-    int gameMode;
-    gotoxy(15,3);
+    gotoxy(74,2);
     cout<<"Welcome to Connect 4"<<endl;
-    cout<<"Choose the game mode: 1.vs the PC "<<endl <<" 2.vs another player  "<<endl;
+    instructions();
+
+    int gameMode;
+    
+    gotoxy(76,17);
+    cout<<"Choose the game mode: "<<endl;
+    gotoxy(78,18);cout<<"1.vs the PC "<<endl;
+    gotoxy(78,19);cout<<"2.vs another player  "<<endl;
     cin>>gameMode;
     return gameMode;
 }
 
 void gotoxy(int x,int y){
     cout<<"\033["<<y<<";"<<x<<"f";
+}
+
+void instructions(){
+gotoxy(69,4); cout<<"OBJECTIVE: "<<endl;
+gotoxy(44,5); cout<<"Be the first player to connect 4 discs of the same color in a row"<<endl;
+gotoxy(44,6); cout<<"(either vertical, horizontal or diagonal)"<<endl;
+gotoxy(44,8); cout<<"HOW TO PLAY: "<<endl;
+gotoxy(44,9);cout<<"Players must alternate turns and only one puck can be placed each "<<endl;
+gotoxy(44,10);cout<<"turn."<<endl;
+gotoxy(44,12); cout<<"On your turn, let select the column in which you want to place one of "<<endl;
+gotoxy(44,13); cout<<"your colored discs."<<endl;
+gotoxy(44,15); cout<<"The disc will be placed at the bottom of this column "<<endl;
+gotoxy(44,16);cout<<"sitting on top of discs previously placed in one of"<<endl;
+gotoxy(44,17);cout<<" the seven slots."<<endl;
+gotoxy(44,19);cout<<"The game ends when there is a 4 in a row or deadlock."<<endl<<endl<<endl;
+
 }
 
 
