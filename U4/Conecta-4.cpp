@@ -36,26 +36,16 @@ bool checkPlay();//samuel
 void playGame();//Jorge
 void gotoxy(int x,int y);
 
-<<<<<<< HEAD
-char areaGame[7][7]={{'1','2','3','4','5','6','7'},{'8','9','10','11','12','13','14'},{'15','16','17','18','19','20','21'},
-                {'22','23','24','25','26','27','28'},{'29','30','31','32','33','34','35'},{'36','37','38','39','40','41','42'},{'43','44','45','46','47','48','49'}};
-=======
 int turnPlayer=1;
 int gameArea[7][7];
->>>>>>> bbafa5bee3624760ee09f7a07afab0d04f204f09
 
 
 // funcion principal 
  int main(){
-<<<<<<< HEAD
-    mainMenu();
-    makeBoard();
-=======
 
     mainMenu();
     makeBoard();
     playGame();
->>>>>>> bbafa5bee3624760ee09f7a07afab0d04f204f09
 
  }
 
@@ -152,24 +142,16 @@ int mainMenu(){
     */
    
     int gameMode;
-<<<<<<< HEAD
-    cout<<"************Welcome to Connect 4****************"<<endl;
-    cout<<"Choose the game mode: 1.vs the PC or 2.vs another player  ";
-=======
     gotoxy(15,3);
     cout<<"Welcome to Connect 4"<<endl;
     cout<<"Choose the game mode: 1.vs the PC "<<endl <<" 2.vs another player  "<<endl;
->>>>>>> bbafa5bee3624760ee09f7a07afab0d04f204f09
     cin>>gameMode;
     return gameMode;
 }
 
-<<<<<<< HEAD
-=======
 void gotoxy(int x,int y){
-    cout<<"\033["<<y<<"i"<<x<<"f";
+    cout<<"\033["<<y<<";"<<x<<"f";
 }
 
 
 
->>>>>>> bbafa5bee3624760ee09f7a07afab0d04f204f09
