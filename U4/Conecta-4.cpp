@@ -141,12 +141,10 @@ int mainMenu(){
     3 CONTENIDO EN LINEA
     4 AÑADIR LAS REGLAS 
     */
+     int gameMode;
     gotoxy(74,2);
     cout<<"Welcome to Connect 4"<<endl;
     instructions();
-
-    int gameMode;
-    
     gotoxy(76,17);
     cout<<"Choose the game mode: "<<endl;
     gotoxy(78,18);cout<<"1.vs the PC "<<endl;
