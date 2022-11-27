@@ -45,7 +45,7 @@ int gameArea[7][7];
  int main(){
 
     mainMenu();
-    makeBoard();
+    gotoxy(1,2);makeBoard();
     playGame();
 
  }
@@ -132,23 +132,25 @@ bool checkPlay(int play){
         return false;
     }
 }
-
-
-int mainMenu(){
-    /*
+/*
     1.MEJORAR MENU
     2 INVESTIGAR COLORES
     3 CONTENIDO EN LINEA
     4 AÑADIR LAS REGLAS 
     */
+
+int mainMenu(){
+    
      int gameMode;
     gotoxy(74,2);
     cout<<"Welcome to Connect 4"<<endl;
     instructions();
-    gotoxy(76,17);
-    cout<<"Choose the game mode: "<<endl;
-    gotoxy(78,18);cout<<"1.vs the PC "<<endl;
-    gotoxy(78,19);cout<<"2.vs another player  "<<endl;
+    gotoxy(76,21);
+    cout<<"\033[0;33m"<<"Choose the game mode: "<<"\033[o"<<endl;
+    gotoxy(78,22);
+    cout<<"\033[0;33m"<<"1.vs the PC "<<"\033[o"<<endl;
+    gotoxy(78,23);
+    cout<<"\033[0;33m"<<"2.vs another player "<<"\033[o"<<endl;
     cin>>gameMode;
     return gameMode;
 }
@@ -164,12 +166,12 @@ gotoxy(44,6); cout<<"(either vertical, horizontal or diagonal)"<<endl;
 gotoxy(44,8); cout<<"HOW TO PLAY: "<<endl;
 gotoxy(44,9);cout<<"Players must alternate turns and only one puck can be placed each "<<endl;
 gotoxy(44,10);cout<<"turn."<<endl;
-gotoxy(44,12); cout<<"On your turn, let select the column in which you want to place one of "<<endl;
-gotoxy(44,13); cout<<"your colored discs."<<endl;
+gotoxy(44,12); cout<<"On your turn, let select the column in which you want to place one "<<endl;
+gotoxy(44,13); cout<<" of your colored discs."<<endl;
 gotoxy(44,15); cout<<"The disc will be placed at the bottom of this column "<<endl;
-gotoxy(44,16);cout<<"sitting on top of discs previously placed in one of"<<endl;
-gotoxy(44,17);cout<<" the seven slots."<<endl;
-gotoxy(44,19);cout<<"The game ends when there is a 4 in a row or deadlock."<<endl<<endl<<endl;
+gotoxy(44,16);cout<<"sitting on top of discs previously placed in one"<<endl;
+gotoxy(44,17);cout<<" of the seven slots."<<endl;
+gotoxy(44,19);cout<<"The game ends when there is a 4 in a row or deadlock."<<endl;
 
 }
 
