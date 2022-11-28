@@ -87,7 +87,13 @@ void makeBoard(){
 }
 
 int placeTabOn (){
+
     int placeTab;
+    cout<<"choose in which column you want to place your token"<<endl;
+    cin>>placeTab;
+    
+
+    return placeTab;
 }
 
 //FUNCTION THAT STARTS THE GAME DEPENDING ON THE OPTION OF MODE GAME 
