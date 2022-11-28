@@ -167,26 +167,22 @@ gotoxy(44,6);
 cout<<"\033[0;30m"<<"(either vertical, horizontal or diagonal)"<<"\033[o"<<endl;
 gotoxy(52,8);
 cout<<"\033[1;34m"<<"HOW TO PLAY: "<<"\033[o"<<endl;
-gotoxy(40,9); printf("%c",004);
 gotoxy(44,9);
-cout<<"\033[0;30m"<<"Players must alternate turns and only one puck can be placed each "<<"\033[o"<<endl;
+cout<<"\033[0;30m"<<"\u2726 Players must alternate turns and only one puck can be placed each "<<"\033[o"<<endl;
 gotoxy(44,10);
 cout<<"\033[0;30m"<<"turn."<<"\033[o"<<endl;
-gotoxy(40,12); printf("%c",004);
 gotoxy(44,12);
-cout<<"\033[0;30m"<<"On your turn, let select the column in which you want to place one "<<"\033[o"<<endl;
+cout<<"\033[0;30m"<<"\u2726 On your turn, let select the column in which you want to place one "<<"\033[o"<<endl;
 gotoxy(44,13);
 cout<<"\033[0;30m"<<"of your colored discs."<<"\033[o"<<endl;
-gotoxy(40,15);printf("%c",004);
 gotoxy(44,15);
-cout<<"\033[0;30m"<<"The disc will be placed at the bottom of this column "<<"\033[o"<<endl;
+cout<<"\033[0;30m"<<"\u2726 The disc will be placed at the bottom of this column "<<"\033[o"<<endl;
 gotoxy(44,16);
 cout<<"\033[0;30m"<<"sitting on top of discs previously placed in one"<<"\033[o"<<endl;
 gotoxy(44,17);
 cout<<"\033[0;30m"<<"of the seven slots."<<"\033[o;"<<endl;
-gotoxy(40,19);printf("%c",004);
 gotoxy(44,19);
-cout<<"\033[0;30m"<<"The game ends when there is a 4 in a row or deadlock."<<"\033[o"<<endl;
+cout<<"\033[0;30m"<<"\u2726 The game ends when there is a 4 in a row or deadlock."<<"\033[o"<<endl;
 
 }
 
