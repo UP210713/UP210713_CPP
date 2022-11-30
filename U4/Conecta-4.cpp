@@ -46,7 +46,7 @@ int gameArea[7][7];
 
     instructions();
     mainMenu();
-    gotoxy(1,8);makeBoard();
+    gotoxy(1,2);makeBoard();
     playGame();
 
  }
