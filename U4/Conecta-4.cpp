@@ -36,9 +36,18 @@ bool checkPlay();//samuel
 void playGame();//Jorge
 void gotoxy(int x,int y);
 void instructions();
+void placeTabOn();
+void matrixCPU();
 
 int turnPlayer=1;
 int gameArea[7][7];
+char gameplayAreaCPU[7][7];
+
+//NO DELETE
+const string CPU = "machine";
+const string human = "human";
+const string realBoard = "real";
+const string imaginaryBoard = "imaginary";
 
 
 // funcion principal 
@@ -47,7 +56,7 @@ int gameArea[7][7];
     instructions();
     mainMenu();
     gotoxy(1,2);makeBoard();
-    playGame();
+    playGame();placeTabOn();
 
  }
 
@@ -85,14 +94,17 @@ void makeBoard(){
 
 }
 
-int placeTabOn (){
+void placeTabOn (){
+    char characterPlay;
 
-    int placeTab;
-    cout<<"choose in which column you want to place your token"<<endl;
-    cin>>placeTab;
+    if (turnPlayer % 2 == 0)
+    {
+        characterPlay = 'X';
+    }
+    else{
+        characterPlay = 'O';
+    }
     
-
-    return placeTab;
 }
 
 //FUNCTION THAT STARTS THE GAME DEPENDING ON THE OPTION OF MODE GAME 
@@ -106,7 +118,7 @@ void playGame(){
         do{
             play=selectPlay();
 
-        }while (turnPlayer<=49 && winner==false);
+        }while (turnPlayer<=7 && winner==false);
     }
 
 
@@ -144,12 +156,17 @@ bool checkPlay(int play){
         return false;
     }
 }
-/*
-    1.MEJORAR MENU
-    2 INVESTIGAR COLORES
-    3 CONTENIDO EN LINEA
-    4 AÑADIR LAS REGLAS 
-    */
+
+//This function has the resposability to create the board to the PC
+void matrixCpu(){
+    for (int rowCpu = 0; rowCpu < 8; rowCpu++)
+    {
+        for (int colCpu = 0; colCpu < 8; colCpu++)
+        {
+            gameplayAreaCPU[rowCpu][colCpu] = gameArea[rowCpu][colCpu];
+        }
+    }
+}
 
 int mainMenu(){
     
