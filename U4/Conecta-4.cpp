@@ -24,6 +24,7 @@ Description: Conect 4
 
 #include <iostream>
 #include <string.h>
+#include <unistd.h>
 
 
 using namespace std;
@@ -36,15 +37,18 @@ bool checkPlay();//samuel
 void playGame();//Jorge
 void gotoxy(int x,int y);
 void instructions();
-
+void animation();
 int turnPlayer=1;
 int gameArea[7][7];
 
 
 // funcion principal 
  int main(){
-
+    animation();
+   
     instructions();
+    usleep(50000);
+    system("clear");
     mainMenu();
     gotoxy(1,2);makeBoard();
     playGame();
@@ -154,11 +158,11 @@ bool checkPlay(int play){
 int mainMenu(){
     
      int gameMode;
-    gotoxy(49,22);
+    gotoxy(49,3);
     cout<<"\033[2;32m"<<"Choose the game mode: "<<"\033[o"<<endl;
-    gotoxy(49,23);
+    gotoxy(49,4);
     cout<<"\033[0;33m"<<"2.vs another player "<<"\033[o"<<endl;
-    gotoxy(49,24);
+    gotoxy(49,5);
     cout<<"\033[0;33m"<<"1.vs the PC "<<"\033[o"<<endl<<endl;
     cin>>gameMode;
     return gameMode;
@@ -199,4 +203,20 @@ cout<<"\033[0;30m"<<"\u2726 The game ends when there is a 4 in a row or deadlock
 }
 
 
-
+void animation(){
+    int title;
+    for(title=1;title<50;title++){
+        gotoxy(1,title);cout<<"|     ||      ||       || "<<endl;
+        gotoxy(2,title);cout<<"|    ||||    ||||    |||  "<<endl;
+        gotoxy(3,title);cout<<"||  ||  ||||||  ||  ||    "<<endl;
+        gotoxy(4,title);cout<<" ||||    ||||    ||||     "<<endl;
+        gotoxy(5,title);cout<<"  ||      ||      ||      "<<endl;
+    }
+    usleep(10000);
+    if (title<=50)
+    {
+     system("clear");
+    usleep(20000);   
+    }
+    
+}
