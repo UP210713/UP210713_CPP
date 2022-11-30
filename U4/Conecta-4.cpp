@@ -84,7 +84,6 @@ void makeBoard(){
     }
 
 }
-<<<<<<< HEAD
 
 int placeTabOn (){
 
@@ -96,8 +95,6 @@ int placeTabOn (){
     return placeTab;
 }
 
-=======
->>>>>>> ccb8004ca97280e332a8822ddc87fa2ac5d919fa
 //FUNCTION THAT STARTS THE GAME DEPENDING ON THE OPTION OF MODE GAME 
 void playGame(){
     bool winner=false;
