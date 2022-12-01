@@ -22,6 +22,7 @@ Description: Conect 4
 
 #include <iostream>
 #include <string.h>
+#include <unistd.h>
 
 
 using namespace std;
@@ -32,21 +33,35 @@ void makeBoard();//Jorge
 int selectPlay();//Samuel
 bool checkPlay();//samuel
 void playGame();//Jorge
+void connect();
 void gotoxy(int x,int y);
 void instructions();
+void placeTabOn();
+void matrixCPU();
+void animation();
 
 int turnPlayer=1;
 int gameArea[7][7];
+char gameplayAreaCPU[7][7];
+
+//NO DELETE
+const string CPU = "machine";
+const string human = "human";
+const string realBoard = "real";
+const string imaginaryBoard = "imaginary";
 
 
 // funcion principal 
  int main(){
 
+    animation();
     instructions();
+    usleep(150000);
+    system("clear");
+    connect();
     mainMenu();
-    gotoxy(1,2);
-    makeBoard();
-    playGame();
+    gotoxy(1,2);makeBoard();
+    playGame();placeTabOn();
 
  }
 
@@ -84,14 +99,17 @@ void makeBoard(){
 
 }
 
-int placeTabOn (){
+void placeTabOn (){
+    char characterPlay;
 
-    int placeTab;
-    cout<<"choose in which column you want to place your token"<<endl;
-    cin>>placeTab;
+    if (turnPlayer % 2 == 0)
+    {
+        characterPlay = 'X';
+    }
+    else{
+        characterPlay = 'O';
+    }
     
-
-    return placeTab;
 }
 
 //FUNCTION THAT STARTS THE GAME DEPENDING ON THE OPTION OF MODE GAME 
@@ -105,7 +123,7 @@ void playGame(){
         do{
             play=selectPlay();
 
-        }while (turnPlayer<=49 && winner==false);
+        }while (turnPlayer<=7 && winner==false);
     }
 
 
@@ -143,22 +161,27 @@ bool checkPlay(int play){
         return false;
     }
 }
-/*
-    1.MEJORAR MENU
-    2 INVESTIGAR COLORES
-    3 CONTENIDO EN LINEA
-    4 AÑADIR LAS REGLAS 
-    */
+
+//This function has the resposability to create the board to the PC
+void matrixCpu(){
+    for (int rowCpu = 0; rowCpu < 8; rowCpu++)
+    {
+        for (int colCpu = 0; colCpu < 8; colCpu++)
+        {
+            gameplayAreaCPU[rowCpu][colCpu] = gameArea[rowCpu][colCpu];
+        }
+    }
+}
 
 int mainMenu(){
     
      int gameMode;
-    gotoxy(49,22);
+    gotoxy(49,3);
     cout<<"\033[2;32m"<<"Choose the game mode: "<<"\033[o"<<endl;
-    gotoxy(49,23);
-    cout<<"\033[0;33m"<<"1.vs another player "<<"\033[o"<<endl;
-    gotoxy(49,24);
-    cout<<"\033[0;33m"<<"2.vs the PC "<<"\033[o"<<endl<<endl;
+    gotoxy(49,4);
+    cout<<"\033[0;33m"<<"2.vs another player "<<"\033[o"<<endl;
+    gotoxy(49,5);
+    cout<<"\033[0;33m"<<"1.vs the PC "<<"\033[o"<<endl<<endl;
     cin>>gameMode;
     return gameMode;
 }
@@ -198,4 +221,30 @@ cout<<"\033[0;30m"<<"\u2726 The game ends when there is a 4 in a row or deadlock
 }
 
 
+void animation(){
+    int title;
+    for(title=1;title<50;title++){
+        gotoxy(1,title);cout<<"|     ||      ||       || "<<endl;
+        gotoxy(2,title);cout<<"|    ||||    ||||    |||  "<<endl;
+        gotoxy(3,title);cout<<"||  ||  ||||||  ||  ||    "<<endl;
+        gotoxy(4,title);cout<<" ||||    ||||    ||||     "<<endl;
+        gotoxy(5,title);cout<<"  ||      ||      ||      "<<endl;
+    }
+    usleep(10000);
+    if (title<50)
+    {
+     system("clear");
+    usleep(20000);   
+    }
+    
+}
 
+void connect(){
+    for(int count=-10;count<50000; count++){ 
+        gotoxy(50,12); cout<<"\033[4;36m"<<"Welcome to Connect 4"<<"\033[o"<<endl;
+        usleep(1000);
+        system("clS");
+        usleep(1000);
+        gotoxy(51,13);cout<<"\033[5;31m"<<"Loading..."<<"\033[o"<<endl;
+    }
+}
