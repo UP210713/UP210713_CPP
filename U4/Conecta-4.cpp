@@ -22,7 +22,7 @@ Description: Conect 4
 
 #include <iostream>
 #include <string.h>
-
+#include <unistd.h>
 
 using namespace std;
 
@@ -37,7 +37,7 @@ void playGame(int);//Jorge
 void insertPlay(int play);//Jorge
 void gotoxy(int x,int y);
 void instructions();
-void placeTabOn();
+int placeTabOn();
 void matrixCPU();
 void animation();
 void title();
@@ -60,18 +60,19 @@ char gameArea[7][7];
     instructions();
     title();
     mainMenu();
-    
-    
-    
+    title();  
 
  }
+
+
+ 
 //FUNCTION THAT CREATES THE BOARD OF THE GAME
 void makeBoard(){
 
     int row,col,x=1,y=1;
     
 
-    cout<<"  1    2    3    4    5    6    7    "<<endl;
+    cout<<"\033[0;33m"<<"  1    2    3    4    5    6    7    "<<"\033[o"<<endl;
 
     for (row=0;row<=6;row++){
         
@@ -102,7 +103,7 @@ void makeBoard(){
 int placeTabOn (){
 
     int placeTab;
-    cout<<"choose in which column you want to place your token"<<endl;
+    cout<<"\033[1;34"<<"choose in which column you want to place your token"<<"\033[o"<<endl;
     cin>>placeTab;
     
 
@@ -126,7 +127,7 @@ void playGame(int option){
             
                 do
                 {
-                    cout << "INVALID GAME! TRY AGAIN"<<endl;
+                     cout <<"\033[2;31m"<< "INVALID GAME! TRY AGAIN"<<"\033[o"<<endl;
                     break;
                     
                 } while (box == true);
@@ -147,14 +148,14 @@ void playGame(int option){
 
         if (turnPlayer<50){
                 if (turnPlayer % 2 == 0){
-                    cout << "PLAYER 1 WINS"<<endl;
+                   cout <<"\033[1;34m"<< "PLAYER 1 WINS"<<"\033[o"<<endl;
                 }
                 else{
-                    cout << "PLAYER 2 WINS"<<endl;
+                     cout <<"\033[1;34m"<< "PLAYER 2 WINS"<<"\033[o"<<endl;
                 }
             } 
             else{
-                cout << "WE HAVE A TIE"<<endl;
+                 cout <<"\033[1;31m"<< "WE HAVE A TIE"<<"\033[o"<<endl;
             }
 
     }
@@ -175,8 +176,8 @@ int selectPlay(){
             gamer=2;
         }
         
-        cout <<"PLAYER " << gamer <<" Select your play: 1-7 : "<<endl;
-        cin >> move;
+                     cout <<"\033[3;35m"<<"PLAYER " << gamer <<" Select your play: 1-7 : "<<"\033[o"<<endl;
+                     cin >> move;
     } while (move<=0||move>9);
 
     return move;
@@ -236,14 +237,16 @@ void insertPlay(int play){
 void mainMenu(){
     
      int gameMode;
-    gotoxy(49,22);
+    gotoxy(49,5);
     cout<<"\033[2;32m"<<"Choose the game mode: "<<"\033[o"<<endl;
-    gotoxy(49,23);
+    gotoxy(49,6);
     cout<<"\033[0;33m"<<"1.vs another player "<<"\033[o"<<endl;
-    gotoxy(49,24);
+    gotoxy(49,7);
     cout<<"\033[0;33m"<<"2.vs the PC "<<"\033[o"<<endl<<endl;
     cin>>gameMode;
     playGame(gameMode);
+   
+    
    
 }
 //FUNCTION THAT ENABLES THE GOTOXY TOOL TO MOVE THE ELEMENTS OF THE SCREEN
@@ -317,7 +320,7 @@ void animation(){
 
 
 void title(){
-    gotoxy(70,2); cout<<"\033[5;32m"<<"C-O-N-N-E-C-T----IV"<<"\033[o"<<endl;
+    gotoxy(60,2); cout<<"\033[5;32m"<<"C-O-N-N-E-C-T----IV"<<"\033[o"<<endl;
 }
 
 
