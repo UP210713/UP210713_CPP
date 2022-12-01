@@ -35,12 +35,12 @@ void makeBoard();//Jorge
 int selectPlay();//Samuel
 bool checkPlay();//samuel
 void playGame();//Jorge
-void connect();
 void gotoxy(int x,int y);
 void instructions();
 void placeTabOn();
 void matrixCPU();
 void animation();
+void title();
 
 int turnPlayer=1;
 int gameArea[7][7];
@@ -58,9 +58,7 @@ const string imaginaryBoard = "imaginary";
 
     animation();
     instructions();
-    usleep(150000);
-    system("clear");
-    connect();
+    title();
     mainMenu();
     gotoxy(1,2);makeBoard();
     playGame();placeTabOn();
@@ -192,8 +190,9 @@ void gotoxy(int x,int y){
     cout<<"\033["<<y<<";"<<x<<"f";
 }
 
-void instructions(){  
-gotoxy(70,2); cout<<"\033[1;34m"<<"Welcome to Connect 4"<<"\033[o"<<endl;
+void instructions(){ 
+int start; 
+gotoxy(70,2); cout<<"\033[5;32m"<<"Welcome to Connect 4"<<"\033[o"<<endl;
 gotoxy(53,4);
 cout<<"\033[1;34m"<<"OBJECTIVE: "<<"\033[o"<<endl;
 gotoxy(44,5);
@@ -220,33 +219,42 @@ cout<<"\033[0;30m"<<"of the seven slots."<<"\033[o;"<<endl;
 gotoxy(44,19);
 cout<<"\033[0;30m"<<"\u2726 The game ends when there is a 4 in a row or deadlock."<<"\033[o"<<endl;
 
+gotoxy(2,11);
+cout<<"\033[3;33m"<<"Click 1 to STATRT"<<"\033[o"<<endl;
+cin>>start;
+if (start==1)
+{
+    system("clear");
+
+}
+
 }
 
 
 void animation(){
-    int title;
-    for(title=1;title<50;title++){
-        gotoxy(1,title);cout<<"|     ||      ||       || "<<endl;
-        gotoxy(2,title);cout<<"|    ||||    ||||    |||  "<<endl;
-        gotoxy(3,title);cout<<"||  ||  ||||||  ||  ||    "<<endl;
-        gotoxy(4,title);cout<<" ||||    ||||    ||||     "<<endl;
-        gotoxy(5,title);cout<<"  ||      ||      ||      "<<endl;
+    for(int count=10;count<20; count++){ 
+        gotoxy(50,12); cout<<"\033[4;36m"<<"Welcome to Connect 4"<<"\033[o"<<endl;
+        gotoxy(51,13);cout<<"\033[5;31m"<<"Loading..."<<"\033[o"<<endl;
+        for(int charge=0;charge<4;charge++){ 
+            if (charge==1)
+            {
+            gotoxy(51,14);cout<<"\033[5;31m"<<" |||......_"<<"\033[o"<<endl;
+            }else if(charge==2)
+            {
+            gotoxy(51,14);cout<<"\033[5;31m"<<" ...|||..."<<"\033[o"<<endl;
+            }else  if(charge==3)
+            {
+            gotoxy(51,14);cout<<"\033[5;31m"<<" ......|||"<<"\033[o"<<endl;
+            }
+            usleep(200000);
+            system("clear");
+            usleep(1000);
+            
+        }
     }
-    usleep(10000);
-    if (title<50)
-    {
-     system("clear");
-    usleep(20000);   
-    }
-    
 }
 
-void connect(){
-    for(int count=-10;count<50000; count++){ 
-        gotoxy(50,12); cout<<"\033[4;36m"<<"Welcome to Connect 4"<<"\033[o"<<endl;
-        usleep(1000);
-        system("clS");
-        usleep(1000);
-        gotoxy(51,13);cout<<"\033[5;31m"<<"Loading..."<<"\033[o"<<endl;
-    }
+
+void title(){
+    gotoxy(70,2); cout<<"\033[5;32m"<<"C-O-N-N-E-C-T----IV"<<"\033[o"<<endl;
 }
