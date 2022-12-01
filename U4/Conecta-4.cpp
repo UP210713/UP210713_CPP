@@ -35,10 +35,12 @@ void makeBoard();//Jorge
 int selectPlay();//Samuel
 bool checkPlay();//samuel
 void playGame();//Jorge
+void connect();
 void gotoxy(int x,int y);
 void instructions();
 void placeTabOn();
 void matrixCPU();
+void animation();
 
 int turnPlayer=1;
 int gameArea[7][7];
@@ -53,11 +55,12 @@ const string imaginaryBoard = "imaginary";
 
 // funcion principal 
  int main(){
+
     animation();
-   
     instructions();
-    usleep(50000);
+    usleep(150000);
     system("clear");
+    connect();
     mainMenu();
     gotoxy(1,2);makeBoard();
     playGame();placeTabOn();
@@ -230,10 +233,20 @@ void animation(){
         gotoxy(5,title);cout<<"  ||      ||      ||      "<<endl;
     }
     usleep(10000);
-    if (title<=50)
+    if (title<50)
     {
      system("clear");
     usleep(20000);   
     }
     
+}
+
+void connect(){
+    for(int count=-10;count<50000; count++){ 
+        gotoxy(50,12); cout<<"\033[4;36m"<<"Welcome to Connect 4"<<"\033[o"<<endl;
+        usleep(1000);
+        system("clS");
+        usleep(1000);
+        gotoxy(51,13);cout<<"\033[5;31m"<<"Loading..."<<"\033[o"<<endl;
+    }
 }
