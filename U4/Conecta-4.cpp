@@ -22,55 +22,42 @@ Description: Conect 4
 
 #include <iostream>
 #include <string.h>
-#include <unistd.h>
 
 
 using namespace std;
 
 //MAIN FUNCTIONS OF THE CODE
-int mainMenu();//Osiris
+void mainMenu();//Osiris
 void makeBoard();//Jorge
 int selectPlay();//Samuel
-bool checkPlay();//samuel
-void playGame();//Jorge
-void connect();
+bool checkPlay(int);//samuel
+void playGame(int);//Jorge
+void insertPlay(int play);//Jorge
 void gotoxy(int x,int y);
 void instructions();
-void placeTabOn();
-void matrixCPU();
-void animation();
+void fillArea();//Jorge
+bool checkWinner();
 
+//CONSTANTS OF THE CODE
 int turnPlayer=1;
-int gameArea[7][7];
-char gameplayAreaCPU[7][7];
-
-//NO DELETE
-const string CPU = "machine";
-const string human = "human";
-const string realBoard = "real";
-const string imaginaryBoard = "imaginary";
+char gameArea[7][7];
 
 
-// funcion principal 
+//MAIN FUNCTION
  int main(){
 
-    animation();
     instructions();
-    usleep(150000);
-    system("clear");
-    connect();
     mainMenu();
-    gotoxy(1,2);makeBoard();
-    playGame();placeTabOn();
+    
+    
+    
 
  }
-
 //FUNCTION THAT CREATES THE BOARD OF THE GAME
-
-
 void makeBoard(){
 
-    int row,col,x=0,y=0;
+    int row,col,x=1,y=1;
+    
 
     cout<<"  1    2    3    4    5    6    7    "<<endl;
 
@@ -84,46 +71,80 @@ void makeBoard(){
             else if(col==3||col==7||col==11||col==15||col==19||col==23||col==27){
 
                 
+                cout<<"  "<<gameArea[x][y]<<" ";
                 x++;
-
             }
-            else {
-                cout<<"  ";
-            }
+                
         }
 
+
         cout<<endl;
+        y++;
+        x=1;
 
        
     }
 
 }
+//INT FUNCTION
+int placeTabOn (){
 
-void placeTabOn (){
-    char characterPlay;
-
-    if (turnPlayer % 2 == 0)
-    {
-        characterPlay = 'X';
-    }
-    else{
-        characterPlay = 'O';
-    }
+    int placeTab;
+    cout<<"choose in which column you want to place your token"<<endl;
+    cin>>placeTab;
     
-}
 
-//FUNCTION THAT STARTS THE GAME DEPENDING ON THE OPTION OF MODE GAME 
-void playGame(){
-    bool winner=false;
-    int option=0,play=0;
-    option=mainMenu();
+    return placeTab;
+}
+//THIS FUNCTION STARTS THE MODE OF THE GAME 
+void playGame(int option){
+    bool winner=false,box=false;
+    int play;
+    gotoxy(1,2);
+    fillArea();
+     makeBoard();
+    
 
     if(option==1){
         
         do{
             play=selectPlay();
+            box=checkPlay(play);
+            if(box==true){
+            
+                do
+                {
+                    cout << "INVALID GAME! TRY AGAIN"<<endl;
+                    break;
+                    
+                } while (box == true);
+            }
+            else if (box == false){
 
-        }while (turnPlayer<=7 && winner==false);
+                system("clear");
+                insertPlay(play);
+               
+                makeBoard();
+                 
+                
+            } 
+            winner=checkWinner();
+            
+
+        }while (turnPlayer<=49 && winner==false);
+
+        if (turnPlayer<50){
+                if (turnPlayer % 2 == 0){
+                    cout << "PLAYER 1 WINS"<<endl;
+                }
+                else{
+                    cout << "PLAYER 2 WINS"<<endl;
+                }
+            } 
+            else{
+                cout << "WE HAVE A TIE"<<endl;
+            }
+
     }
 
 
@@ -131,7 +152,7 @@ void playGame(){
 }
 //FUNCTION THAT SELECT THE PLAY
 int selectPlay(){
-    int turn=0;
+    int move=0;
     int gamer;
     
      do{
@@ -143,15 +164,15 @@ int selectPlay(){
         }
         
         cout <<"PLAYER " << gamer <<" Select your play: 1-7 : "<<endl;
-        cin >> turn;
-    } while (turn < 0 || turn > 9);
+        cin >> move;
+    } while (move<=0||move>9);
 
-    return turn;
+    return move;
 
 }
 //FUNCTION THAT CHECK IF THE PLAY IS VALID
 bool checkPlay(int play){
-     int row = play / 10, col = play - 1;
+    /*int row = play, col = 7;
     if (gameArea[row][col] == 'X' || gameArea[row][col] == 'O')
     {
         return true;
@@ -160,36 +181,64 @@ bool checkPlay(int play){
     {
         return false;
     }
+    */
+   if (play<1||play>7){
+    return true;
+   }
+   else{
+    return false;
+   }
+   
 }
+//FUNCTION THAT INSERT A RECORD ON THE BOARD DEPENDING ON THE TURN
+void insertPlay(int play){
+    char record;
+    int numPlay;
+    int row=7;
 
-//This function has the resposability to create the board to the PC
-void matrixCpu(){
-    for (int rowCpu = 0; rowCpu < 8; rowCpu++)
-    {
-        for (int colCpu = 0; colCpu < 8; colCpu++)
-        {
-            gameplayAreaCPU[rowCpu][colCpu] = gameArea[rowCpu][colCpu];
-        }
-    }
+   if(turnPlayer%2==0){
+    record='X';
+   }
+    else{
+        record='O';
+   }
+
+   
+   if(gameArea[play][row]=='X' || gameArea[play][row]=='O'){
+    do{
+
+        row--;
+
+    }while (gameArea[play][row]=='X' || gameArea[play][row]=='O');
+    
+    gameArea[play][row]=record;
+   }
+   else{
+    gameArea[play][row]= record;
+   }
+
+   turnPlayer++;
+
 }
-
-int mainMenu(){
+//THIS FUNCTION CREATES THE MAIN MENU OF THE GAME
+void mainMenu(){
     
      int gameMode;
-    gotoxy(49,3);
+    gotoxy(49,22);
     cout<<"\033[2;32m"<<"Choose the game mode: "<<"\033[o"<<endl;
-    gotoxy(49,4);
-    cout<<"\033[0;33m"<<"2.vs another player "<<"\033[o"<<endl;
-    gotoxy(49,5);
-    cout<<"\033[0;33m"<<"1.vs the PC "<<"\033[o"<<endl<<endl;
+    gotoxy(49,23);
+    cout<<"\033[0;33m"<<"1.vs another player "<<"\033[o"<<endl;
+    gotoxy(49,24);
+    cout<<"\033[0;33m"<<"2.vs the PC "<<"\033[o"<<endl<<endl;
     cin>>gameMode;
-    return gameMode;
+    playGame(gameMode);
+   
 }
-
+//FUNCTION THAT ENABLES THE GOTOXY TOOL TO MOVE THE ELEMENTS OF THE SCREEN
 void gotoxy(int x,int y){
     cout<<"\033["<<y<<";"<<x<<"f";
 }
-
+//INSTRUCTIONS OF THE GAME
 void instructions(){  
 gotoxy(70,2); cout<<"\033[1;34m"<<"Welcome to Connect 4"<<"\033[o"<<endl;
 gotoxy(53,4);
@@ -219,32 +268,23 @@ gotoxy(44,19);
 cout<<"\033[0;30m"<<"\u2726 The game ends when there is a 4 in a row or deadlock."<<"\033[o"<<endl;
 
 }
-
-
-void animation(){
-    int title;
-    for(title=1;title<50;title++){
-        gotoxy(1,title);cout<<"|     ||      ||       || "<<endl;
-        gotoxy(2,title);cout<<"|    ||||    ||||    |||  "<<endl;
-        gotoxy(3,title);cout<<"||  ||  ||||||  ||  ||    "<<endl;
-        gotoxy(4,title);cout<<" ||||    ||||    ||||     "<<endl;
-        gotoxy(5,title);cout<<"  ||      ||      ||      "<<endl;
+//AT FIRST INSTANCE THE BOARDS NEEDS TO BE FILL WITH EMPTY CHARACTERS
+void fillArea(){
+    for(int row=1;row<8;row++){
+        for(int col=1;col<8;col++){
+            gameArea[row][col]=' ';
+        }
     }
-    usleep(10000);
-    if (title<50)
-    {
-     system("clear");
-    usleep(20000);   
-    }
-    
 }
-
-void connect(){
-    for(int count=-10;count<50000; count++){ 
-        gotoxy(50,12); cout<<"\033[4;36m"<<"Welcome to Connect 4"<<"\033[o"<<endl;
-        usleep(1000);
-        system("clS");
-        usleep(1000);
-        gotoxy(51,13);cout<<"\033[5;31m"<<"Loading..."<<"\033[o"<<endl;
+//FUNCTION THAT CHECK IF THERE IS A WINNER
+bool checkWinner(){
+     bool checkWinner = false;
+     int box=7;
+    for (box; box<=1; box--){
+        if((gameArea[box][1]==gameArea[box][2])&&(gameArea[box][2]==gameArea[box][3])&&(gameArea[box][3]==gameArea[box][4])){
+            checkWinner=true;
+            break;
+        }
     }
+    return checkWinner;
 }
