@@ -17,9 +17,7 @@ Description: Conect 4
 |   |   |   |   |   |   |   |  
 |   |   |   |   |   |   |   |   
 |   |   |   |   |   |   |   |   
-|   |   |   |   |   |   |   |  
-
-
+  
 */
 
 #include <iostream>
@@ -46,7 +44,8 @@ int gameArea[7][7];
 
     instructions();
     mainMenu();
-    gotoxy(1,2);makeBoard();
+    gotoxy(1,2);
+    makeBoard();
     playGame();
 
  }
@@ -60,7 +59,7 @@ void makeBoard(){
 
     cout<<"  1    2    3    4    5    6    7    "<<endl;
 
-    for (row=0;row<=8;row++){
+    for (row=0;row<=6;row++){
         
         for(col=0;col<=28;col++){
 
@@ -157,9 +156,9 @@ int mainMenu(){
     gotoxy(49,22);
     cout<<"\033[2;32m"<<"Choose the game mode: "<<"\033[o"<<endl;
     gotoxy(49,23);
-    cout<<"\033[0;33m"<<"2.vs another player "<<"\033[o"<<endl;
+    cout<<"\033[0;33m"<<"1.vs another player "<<"\033[o"<<endl;
     gotoxy(49,24);
-    cout<<"\033[0;33m"<<"1.vs the PC "<<"\033[o"<<endl<<endl;
+    cout<<"\033[0;33m"<<"2.vs the PC "<<"\033[o"<<endl<<endl;
     cin>>gameMode;
     return gameMode;
 }
