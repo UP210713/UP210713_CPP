@@ -34,7 +34,7 @@ bool checkPlay();//samuel
 void playGame();//Jorge
 bool checkPlay(int);//samuel
 void playGame(int);//Jorge
-void insertPlay(int play);//Jorge
+void insertPlay(int play, string);//Jorge
 void gotoxy(int x,int y);
 void instructions();
 int placeTabOn();
@@ -43,11 +43,14 @@ void animation();
 void title();
 bool checkPlay(int);//samuel
 void playGame(int);//Jorge
-void insertPlay(int play);//Jorge
+void insertPlay(int play, string);//Jorge
 void gotoxy(int x,int y);
 void instructions();
 void fillArea();//Jorge
-bool checkWinner();
+bool checkWinner(string);
+
+
+string realBoard = "real";
 
 //CONSTANTS OF THE CODE
 int turnPlayer=1;
@@ -136,13 +139,13 @@ void playGame(int option){
             else if (box == false){
 
                 system("clear");
-                insertPlay(play);
+                insertPlay(play, realBoard);
                
                 makeBoard();
                  
                 
             } 
-            winner=checkWinner();
+            winner=checkWinner(realBoard);
             
 
         }while (turnPlayer<=49 && winner==false);
@@ -205,7 +208,7 @@ bool checkPlay(int play){
    
 }
 //FUNCTION THAT INSERT A RECORD ON THE BOARD DEPENDING ON THE TURN
-void insertPlay(int play){
+void insertPlay(int play, string board){
     char record;
     int numPlay;
     int row=7;
@@ -217,7 +220,9 @@ void insertPlay(int play){
         record='O';
    }
 
-   
+if (board==realBoard)
+{
+
    if(gameArea[play][row]=='X' || gameArea[play][row]=='O'){
     do{
 
@@ -232,7 +237,7 @@ void insertPlay(int play){
    }
 
    turnPlayer++;
-
+}
 }
 //THIS FUNCTION CREATES THE MAIN MENU OF THE GAME
 void mainMenu(){
@@ -343,16 +348,24 @@ void fillArea(){
 
 
 //FUNCTION THAT CHECK IF THERE IS A WINNER
-bool checkWinner(){
+bool checkWinner(string board){
     
      bool checkWinner = false;
-     int box=7;
-    for (box; box<=1; box--){
-        if((gameArea[box][1]==gameArea[box][2])&&(gameArea[box][2]==gameArea[box][3])&&(gameArea[box][3]==gameArea[box][4])){
-            checkWinner=true;
-            break;
+     int play, row;
+     char posicion;
+     int acum;
+if (board==realBoard)
+{
+    while (posicion =! 'X')
+    {
+        if (gameArea[play][row] == 88)
+        {
+            acum ++;
+            play++;
         }
     }
-    return checkWinner;
     
+   
+ }   
+  return checkWinner;
 }
