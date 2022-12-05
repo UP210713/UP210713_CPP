@@ -83,9 +83,15 @@ void makeBoard(){
             }
             else if(col==3||col==7||col==11||col==15||col==19||col==23||col==27){
 
+                if (gameArea[x][y] == 'X'){
+                    cout<<"\033[3;32m"<<"  "<<gameArea[x][y]<<" "<<"\033[o";
+    
+                }else if (gameArea[x][y] == 'O'){
+                    cout<<"\033[3;31m"<<"  "<<gameArea[x][y]<<" "<<"\033[o";
+                }else{     
                 
-                cout<<"  "<<gameArea[x][y]<<" ";
-                
+                    cout<<"  "<<gameArea[x][y]<<" ";
+                }
                 x++;
             }
                 
