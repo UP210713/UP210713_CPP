@@ -85,6 +85,7 @@ void makeBoard(){
 
                 
                 cout<<"  "<<gameArea[x][y]<<" ";
+                
                 x++;
             }
                 
@@ -297,18 +298,24 @@ if (start==1)
 
 void animation(){
     for(int count=10;count<20; count++){ 
-        gotoxy(50,12); cout<<"\033[4;36m"<<"Welcome to Connect 4"<<"\033[o"<<endl;
-        gotoxy(51,13);cout<<"\033[5;31m"<<"Loading..."<<"\033[o"<<endl;
+        gotoxy(50,11); cout<<"\033[4;36m"<<"Welcome to Connect 4"<<"\033[o"<<endl;
+        gotoxy(52,13);cout<<"\033[5;31m"<<"Loading "<<"\033[o"<<endl;
         for(int charge=0;charge<4;charge++){ 
             if (charge==1)
             {
-            gotoxy(51,14);cout<<"\033[5;31m"<<" |||......_"<<"\033[o"<<endl;
+            gotoxy(50,11); cout<<"\033[4;36m"<<"Welcome to Connect 4"<<"\033[o"<<endl;
+            gotoxy(52,13);cout<<"\033[5;31m"<<"Loading. "<<"\033[o"<<endl;
+            gotoxy(52,14);cout<<"\033[5;31m"<<" |||......_"<<"\033[o"<<endl;
             }else if(charge==2)
             {
-            gotoxy(51,14);cout<<"\033[5;31m"<<" ...|||..."<<"\033[o"<<endl;
+            gotoxy(50,11); cout<<"\033[4;36m"<<"Welcome to Connect 4"<<"\033[o"<<endl;
+            gotoxy(52,13);cout<<"\033[5;31m"<<"Loading.. "<<"\033[o"<<endl;
+            gotoxy(52,14);cout<<"\033[5;31m"<<" ...|||..."<<"\033[o"<<endl;
             }else  if(charge==3)
             {
-            gotoxy(51,14);cout<<"\033[5;31m"<<" ......|||"<<"\033[o"<<endl;
+            gotoxy(50,11); cout<<"\033[4;36m"<<"Welcome to Connect 4"<<"\033[o"<<endl;
+            gotoxy(52,13);cout<<"\033[5;31m"<<"Loading... "<<"\033[o"<<endl;
+            gotoxy(52,14);cout<<"\033[5;31m"<<" ......|||"<<"\033[o"<<endl;
             }
             usleep(200000);
             system("clear");
