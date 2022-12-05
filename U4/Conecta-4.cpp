@@ -344,7 +344,7 @@ void fillArea(){
 
 //FUNCTION THAT CHECK IF THERE IS A WINNER
 bool checkWinner(){
-    /*
+    
      bool checkWinner = false;
      int box=7;
     for (box; box<=1; box--){
@@ -354,12 +354,5 @@ bool checkWinner(){
         }
     }
     return checkWinner;
-    */
-   bool winner = false;
-   char position;
-   while (position != 'X')
-   {
     
-   }
-   
 }
