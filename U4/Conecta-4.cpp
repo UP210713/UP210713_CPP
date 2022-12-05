@@ -352,7 +352,7 @@ bool checkWinner(){
    char position;
    while (position != 'X')
    {
-    gameArea[play][row]
+    
    }
    
 }
