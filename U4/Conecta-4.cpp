@@ -29,7 +29,7 @@ using namespace std;
 //MAIN FUNCTIONS OF THE CODE
 void mainMenu();//Osiris
 void makeBoard();//Jorge
-int selectPlay();//Samuel
+int selectPlay(string);//Samuel
 bool checkPlay();//samuel
 void playGame();//Jorge
 bool checkPlay(int);//samuel
@@ -131,7 +131,7 @@ void playGame(int option){
     if(option==1){
         
         do{
-            play=selectPlay();
+            play=selectPlay(realBoard);
             box=checkPlay(play);
             if(box==true){
             
@@ -174,9 +174,13 @@ void playGame(int option){
 
 }
 //FUNCTION THAT SELECT THE PLAY
-int selectPlay(){
+int selectPlay(string board){
     int move=0;
     int gamer;
+    if (board == realBoard)
+    {
+        /* code */
+    
     
      do{
         if(turnPlayer%2!=0){
@@ -190,6 +194,7 @@ int selectPlay(){
                      cin >> move;
     } while (move<=0||move>9);
 
+    }
     return move;
 
 }
@@ -368,6 +373,11 @@ if (board==realBoard)
         {
             acum ++;
             play++;
+            if (acum == 4)
+            {
+                break;
+            }
+            
         }
     }
     
