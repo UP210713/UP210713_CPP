@@ -448,12 +448,13 @@ gotoxy(f,27);cout<<"      000  "<<endl;
 }
 
 void tituloAnimado(){
-   for (int x = 60; x > 10; x=x-8)
+   for (int x = 50; x > 10; x=x-8)
    {
-       int o=x+10, n=o+10, e=n+10, c=e+10, t=c+10, f=e;
+       int o=x+10, n=o+10, n1=n+10, e=n1+10, c=e+10, t=c+10, f=e;
        letterC(x);
        letterO(o);
        letterN(n);
+       letterN(n1);
        letterE(e);
        letterC(c);
        letterT(t);
