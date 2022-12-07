@@ -21,7 +21,7 @@
 
 ## __📘&nbsp;Flowchart__
 
-![flowchart](/imagenes/)
+![flowchart](/imagenes/diagrama.png)
 
 ## __📘&nbsp;Considerations__
 
@@ -40,4 +40,5 @@
 
 ## __📘&nbsp;Conclutions__   
 
-This is a fairly complete program that tested my programming knowledge and my patience in cases where the code or instructions I gave did not work as I wanted. But I finish this proyect and actualy the program runs very well, the program have many limitations. This is because I still do not have knowledge about many of the tools that I had planned to use. One limitation that I observed was that I couldn't get the cycle that I had planned to work, restart the game every time I wanted, well at the end of the game, I tried, but I couldn't. Another limitation that I had was not getting the player to have the opportunity to choose if he wanted "X" or "O", this was a little more due to time since it was something that occurred to me a little late. But despite the two limitations that I encountered in the process, the game was developed and it works, and I believe that this will help me in my next project.
+The development of this project was something special, since, as a full stack, I developed some functions together with my team to start the project, there were some problems with the git push, since we usually had problems due to the lack of work experience as a team on the git hub platform.
+In this program each person was assigned a job, our partner Osiris was assigned the front end, our partner Jorge was assigned the back end job, and I have the full stack job, as a team we work comfortably and I with With the support of my partner Jorge, we managed to develop the main menu

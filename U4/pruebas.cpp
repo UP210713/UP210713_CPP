@@ -48,7 +48,7 @@ void gotoxy(int x,int y);
 void instructions();
 void fillArea();//Jorge
 
-bool checkWinner();
+bool checkWinner(int, int);
 
 void letterC(int);
 void letterO(int);
@@ -137,6 +137,7 @@ int placeTabOn (){
 void playGame(int option){
     bool winner=false,box=false;
     int play;
+    int row, col;
     gotoxy(1,2);
     fillArea();
      makeBoard();
@@ -165,7 +166,7 @@ void playGame(int option){
                  
                 
             } 
-            winner=checkWinner();
+            winner=checkWinner(row, col);
             
 
         }while (turnPlayer<=49 && winner==false);
@@ -371,41 +372,81 @@ void fillArea(){
 
 
 //FUNCTION THAT CHECK IF THERE IS A WINNER
-bool checkWinner(){
-   	for (int i = 0; i < 7; i++) {
-        for (int j = 6; j >= 3; j--) {
+bool checkWinner(int row, int col){
 
-          if (
-            gameArea[j][i] == 'O' ||
-            gameArea[j][i] == 'X'
-          ) {
-            if (
-              gameArea[j][i] == 'O' &&
-              gameArea[j-1][i] == 'O' &&
-              gameArea[j-2][i] == 'O' &&
-              gameArea[j-3][i] == 'O'
-            ) {
-              player_winner = 1;
-              winner = true;
-              break;
-            }
-
-            if (
-              gameArea[j][i] == 'X' &&
-              gameArea[j-1][i] == 'X' &&
-              gameArea[j-2][i] == 'X' &&
-              gameArea[j-3][i] == 'X'
-            ) {
-              player_winner = 2;
-              winner = true;
-              break;
-            }
-          } else {
-            break;
-          }
-        }
+    bool isWinner = false;
+    int acum = 1;
+    int nCol = col + 1;
+    int n2Col = col - 1;
+    int nRow = row + 1;
+    int n2Row = row - 1;
+    int NRow = row - 1;
+    int NCol = col - 1;
+    int N1Row = row + 1;
+    int N1Col = col + 1;
+    int n1Row = row - 1;
+    int n1Col = col + 1;
+    int N2Row = row + 1;
+    int N2Col = col - 1;
+    //horizontal
+    while (gameArea[row][col] == gameArea[row][nCol])
+    {
+        acum++;
+        nCol++;
     }
-  return checkWinner;	
+    while (gameArea[row][col] == gameArea[row][n2Col])
+    {
+        acum++;
+        n2Col--;
+    }
+    //vertical
+    while (gameArea[row][col] == gameArea[nRow][col])
+    {
+        acum++;
+        nRow++;
+    }
+    while (gameArea[row][col] == gameArea[n2Row][col])
+    {
+        acum++;
+        n2Row--;
+    }
+    //diagonales
+    while (gameArea[row][col] == gameArea[n1Row][n1Col])
+    {
+        acum =1;
+        acum++;
+        n1Col++;
+        n1Row--;
+    }
+    while (gameArea[row][col] == gameArea[N2Row][N2Col])
+    {
+        acum=1;
+        acum++;
+        N2Col--;
+        N2Row++;
+    }
+    while (gameArea[row][col] == gameArea[NRow][NCol])
+    {
+        acum=1;
+        acum++;
+        NCol--;
+        NRow--;
+    }
+    while (gameArea[row][col] == gameArea[N1Row][N1Col])
+    {
+        acum=1;
+        acum++;
+        N1Col++;
+        N1Row++;
+    }
+    if (acum == 4)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }	
  }   
   
 
