@@ -47,8 +47,17 @@ void insertPlay(int play);//Jorge
 void gotoxy(int x,int y);
 void instructions();
 void fillArea();//Jorge
-void checkWinner();
+
+bool checkWinner();
+
+void letterC(int);
+void letterO(int);
+void letterN(int);
+void letterE(int);
+void letterT(int);
+void four4(int);
 void tituloAnimado();
+
 
 
 string realBoard = "real";
@@ -176,7 +185,7 @@ void playGame(int option){
 
 }
 //FUNCTION THAT SELECT THE PLAY
-int selectPlay(string board){
+int selectPlay(){
     int move=0;
     int gamer;
   
@@ -360,7 +369,7 @@ void fillArea(){
 
 
 //FUNCTION THAT CHECK IF THERE IS A WINNER
-void checkWinner(){
+bool checkWinner(){
    	for (int i = 0; i < 7; i++) {
         for (int j = 6; j >= 3; j--) {
         //checkWinner
@@ -394,7 +403,7 @@ void checkWinner(){
           }
         }
     }
-  //  return checkWinner;	
+  return checkWinner;	
  }   
   
 
