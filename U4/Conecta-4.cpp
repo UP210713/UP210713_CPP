@@ -142,7 +142,7 @@ void playGame(int option){
     if(option==1){
         
         do{
-            //play=selectPlay();
+            play=selectPlay();
             box=checkPlay(play);
             if(box==true){
             
