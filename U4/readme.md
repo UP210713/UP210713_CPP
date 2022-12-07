@@ -5,7 +5,15 @@
 [Introduccion for use this game](#intrudiction-for-use-this-game)   
 [Flowchart](#flowchart)   
 [Code and tests of the program](#code-and-tests-of-the-program)   
-[Conslutions](#conclutions)  
+[Conslutions](#conclutions)
+[Integrants](#integrants)  
+
+
+## __📘&nbsp;integrants__
+
+<li>Full stack: Samuel Salvador Soto Torres</li>
+<li>Front end: Osiris Olimpia Martinez</li>
+<li>Back end: Jorge Emilio Santacruz Morales</li>
 
 ## __📘&nbsp;Introduction for use this game__
 <o>
