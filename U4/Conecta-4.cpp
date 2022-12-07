@@ -59,17 +59,14 @@ char gameArea[7][7];
 int player_winner;
 bool winner = false;
 
-
-
 //MAIN FUNCTION
  int main(){
-    tituloAnimado();
-    animation();
+    //tituloAnimado();
+    //animation();
     instructions();
-    title();
+    //title();
     mainMenu();
-    title();  
-
+    //title();  
  }
 
 
@@ -136,7 +133,7 @@ void playGame(int option){
     if(option==1){
         
         do{
-            play=selectPlay();
+            //play=selectPlay();
             box=checkPlay(play);
             if(box==true){
             
@@ -156,7 +153,7 @@ void playGame(int option){
                  
                 
             } 
-            winner=checkWinner();
+           // winner=checkWinner();
             
 
         }while (turnPlayer<=49 && winner==false);
@@ -304,7 +301,8 @@ gotoxy(44,19);
 cout<<"\033[0;30m"<<"\u2726 The game ends when there is a 4 in a row or deadlock."<<"\033[o"<<endl;
 
 gotoxy(2,11);
-cout<<"\033[3;33m"<<"Click 1 to STATRT"<<"\033[o"<<endl;
+cout<<"\033[3;33m"<<" Click 1 to STATRT  \u2726"<<"\033[o";
+gotoxy(16,16);cout<<"\u2726"<<endl;
 cin>>start;
 if (start==1)
 {
@@ -365,7 +363,7 @@ void fillArea(){
 void checkWinner(){
    	for (int i = 0; i < 7; i++) {
         for (int j = 6; j >= 3; j--) {
-
+        //checkWinner
           if (
             gameArea[j][i] == 'O' ||
             gameArea[j][i] == 'X'
@@ -463,7 +461,7 @@ gotoxy(f,27);cout<<"      000  "<<endl;
 }
 
 void tituloAnimado(){
-   for (int x = 50; x > 10; x=x-8)
+   for (int x = 50; x > 1; x=x-5)
    {
        int o=x+10, n=o+10, n1=n+10, e=n1+10, c=e+10, t=c+10, f=e;
        letterC(x);
