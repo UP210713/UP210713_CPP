@@ -34,7 +34,7 @@ bool checkPlay();//samuel
 void playGame();//Jorge
 bool checkPlay(int);//samuel
 void playGame(int);//Jorge
-void insertPlay(int play, string);//Jorge
+void insertPlay(int play);//Jorge
 void gotoxy(int x,int y);
 void instructions();
 int placeTabOn();
@@ -43,10 +43,11 @@ void animation();
 void title();
 bool checkPlay(int);//samuel
 void playGame(int);//Jorge
-void insertPlay(int play, string);//Jorge
+void insertPlay(int play);//Jorge
 void gotoxy(int x,int y);
 void instructions();
 void fillArea();//Jorge
+<<<<<<< HEAD
 bool checkWinner(string);
 void letterC(int);
 void letterO(int);
@@ -57,6 +58,9 @@ void four4(int);
 void tituloAnimado();
 
 
+=======
+void checkWinner();
+>>>>>>> 181935aa41e574ea6a6b86e27e6346168707182b
 
 
 string realBoard = "real";
@@ -64,6 +68,9 @@ string realBoard = "real";
 //CONSTANTS OF THE CODE
 int turnPlayer=1;
 char gameArea[7][7];
+int player_winner;
+bool winner = false;
+
 
 
 //MAIN FUNCTION
@@ -155,13 +162,13 @@ void playGame(int option){
             else if (box == false){
 
                 system("clear");
-                insertPlay(play, realBoard);
+                insertPlay(play);
                
                 makeBoard();
                  
                 
             } 
-            winner=checkWinner(realBoard);
+            winner=checkWinner();
             
 
         }while (turnPlayer<=49 && winner==false);
@@ -184,10 +191,13 @@ void playGame(int option){
 
 }
 //FUNCTION THAT SELECT THE PLAY
-int selectPlay(){
+int selectPlay(string board){
     int move=0;
     int gamer;
+  
+     
     
+
      do{
         if(turnPlayer%2!=0){
             gamer=1;
@@ -200,6 +210,7 @@ int selectPlay(){
                      cin >> move;
     } while (move<=0||move>9);
 
+    
     return move;
 
 }
@@ -224,7 +235,7 @@ bool checkPlay(int play){
    
 }
 //FUNCTION THAT INSERT A RECORD ON THE BOARD DEPENDING ON THE TURN
-void insertPlay(int play, string board){
+void insertPlay(int play){
     char record;
     int numPlay;
     int row=7;
@@ -236,8 +247,7 @@ void insertPlay(int play, string board){
         record='O';
    }
 
-if (board==realBoard)
-{
+
 
    if(gameArea[play][row]=='X' || gameArea[play][row]=='O'){
     do{
@@ -253,7 +263,7 @@ if (board==realBoard)
    }
 
    turnPlayer++;
-}
+
 }
 //THIS FUNCTION CREATES THE MAIN MENU OF THE GAME
 void mainMenu(){
@@ -364,25 +374,43 @@ void fillArea(){
 
 
 //FUNCTION THAT CHECK IF THERE IS A WINNER
-bool checkWinner(string board){
-    
-     bool checkWinner = false;
-     int play, row;
-     char posicion;
-     int acum;
-if (board==realBoard)
-{
-    while (posicion =! 'X')
-    {
-        if (gameArea[play][row] == 88)
-        {
-            acum ++;
-            play++;
+void checkWinner(){
+   	for (int i = 0; i < 7; i++) {
+        for (int j = 6; j >= 3; j--) {
+
+          if (
+            gameArea[j][i] == 'O' ||
+            gameArea[j][i] == 'X'
+          ) {
+            if (
+              gameArea[j][i] == 'O' &&
+              gameArea[j-1][i] == 'O' &&
+              gameArea[j-2][i] == 'O' &&
+              gameArea[j-3][i] == 'O'
+            ) {
+              player_winner = 1;
+              winner = true;
+              break;
+            }
+
+            if (
+              gameArea[j][i] == 'X' &&
+              gameArea[j-1][i] == 'X' &&
+              gameArea[j-2][i] == 'X' &&
+              gameArea[j-3][i] == 'X'
+            ) {
+              player_winner = 2;
+              winner = true;
+              break;
+            }
+          } else {
+            break;
+          }
         }
     }
-    
-   
+    	
  }   
+<<<<<<< HEAD
   return checkWinner;
 }
 
@@ -466,3 +494,5 @@ void tituloAnimado(){
    
 
 }
+=======
+>>>>>>> 181935aa41e574ea6a6b86e27e6346168707182b
