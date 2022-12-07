@@ -47,20 +47,8 @@ void insertPlay(int play);//Jorge
 void gotoxy(int x,int y);
 void instructions();
 void fillArea();//Jorge
-<<<<<<< HEAD
-bool checkWinner(string);
-void letterC(int);
-void letterO(int);
-void letterN(int);
-void letterE(int);
-void letterT(int);
-void four4(int);
-void tituloAnimado();
-
-
-=======
 void checkWinner();
->>>>>>> 181935aa41e574ea6a6b86e27e6346168707182b
+void tituloAnimado();
 
 
 string realBoard = "real";
@@ -408,11 +396,10 @@ void checkWinner(){
           }
         }
     }
-    	
+  //  return checkWinner;	
  }   
-<<<<<<< HEAD
-  return checkWinner;
-}
+  
+
 
 
 void letterC (int x){
@@ -494,5 +481,3 @@ void tituloAnimado(){
    
 
 }
-=======
->>>>>>> 181935aa41e574ea6a6b86e27e6346168707182b
