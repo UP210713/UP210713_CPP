@@ -436,7 +436,6 @@ gotoxy(n,16);cout<<"  oo   oo  "<<endl;
 
 }
 
-
 void letterE (int e){
 
 gotoxy(e,12);cout<<"  oooooo  "<<endl;  
@@ -482,7 +481,7 @@ void tituloAnimado(){
        four4(f);
    usleep(400000);
    system("clear");
-   usleep(10000);
+   usleep(9000);
    }
    
 
