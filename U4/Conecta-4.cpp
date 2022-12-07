@@ -70,12 +70,12 @@ bool winner = false;
 
 //MAIN FUNCTION
  int main(){
-    //tituloAnimado();
-    //animation();
+    tituloAnimado();
+    animation();
     instructions();
-    //title();
+    title();
     mainMenu();
-    //title();  
+    title();  
  }
 
 
@@ -310,8 +310,7 @@ gotoxy(44,19);
 cout<<"\033[0;30m"<<"\u2726 The game ends when there is a 4 in a row or deadlock."<<"\033[o"<<endl;
 
 gotoxy(2,11);
-cout<<"\033[3;33m"<<" Click 1 to STATRT  \u2726"<<"\033[o";
-gotoxy(16,16);cout<<"\u2726"<<endl;
+cout<<"\033[3;33m"<<" Click 1 to STATRT  \u26A1  \u26A1  \U26A1"<<"\033[o"<<endl;
 cin>>start;
 if (start==1)
 {
