@@ -47,7 +47,20 @@ void insertPlay(int play);//Jorge
 void gotoxy(int x,int y);
 void instructions();
 void fillArea();//Jorge
+<<<<<<< HEAD
+bool checkWinner(string);
+void letterC(int);
+void letterO(int);
+void letterN(int);
+void letterE(int);
+void letterT(int);
+void four4(int);
+void tituloAnimado();
+
+
+=======
 void checkWinner();
+>>>>>>> 181935aa41e574ea6a6b86e27e6346168707182b
 
 
 string realBoard = "real";
@@ -62,6 +75,7 @@ bool winner = false;
 
 //MAIN FUNCTION
  int main(){
+    tituloAnimado();
     animation();
     instructions();
     title();
@@ -396,3 +410,89 @@ void checkWinner(){
     }
     	
  }   
+<<<<<<< HEAD
+  return checkWinner;
+}
+
+
+void letterC (int x){
+gotoxy(x,12);cout<<"\033[1;33m"<<"   oooooo  "<<"\033[o"<<endl; 
+gotoxy(x,13);cout<<"   00      "<<endl;    
+gotoxy(x,14);cout<<"   oo      "<<endl; 
+gotoxy(x,15);cout<<"   00      "<<endl;    
+gotoxy(x,16);cout<<"   oooooo  "<<endl;  
+
+}
+
+void letterO (int o){
+gotoxy(o,12);cout<<"  oooooo  "<<endl;
+gotoxy(o,13);cout<<"  00  00  "<<endl;
+gotoxy(o,14);cout<<"  oo  oo  "<<endl;
+gotoxy(o,15);cout<<"  00  00  "<<endl;   
+gotoxy(o,16);cout<<"  oooooo  "<<endl;    
+
+}
+
+void letterN (int n){
+
+gotoxy(n,12);cout<<"  ooo  oo  "<<endl; 
+gotoxy(n,13);cout<<"  000  00  "<<endl;   
+gotoxy(n,14);cout<<"  oooo oo  "<<endl;  
+gotoxy(n,15);cout<<"  00  000  "<<endl;    
+gotoxy(n,16);cout<<"  oo   oo  "<<endl;   
+
+}
+
+
+void letterE (int e){
+
+gotoxy(e,12);cout<<"  oooooo  "<<endl;  
+gotoxy(e,13);cout<<"  00      "<<endl;    
+gotoxy(e,14);cout<<"  oooooo  "<<endl;    
+gotoxy(e,15);cout<<"  00      "<<endl;    
+gotoxy(e,16);cout<<"  oooooo  "<<endl;     
+
+}
+
+void letterT (int t){
+
+gotoxy(t,12);cout<<" oooooooo "<<endl;  
+gotoxy(t,13);cout<<"    00    "<<endl;
+gotoxy(t,14);cout<<"    oo    "<<endl;
+gotoxy(t,15);cout<<"    00    "<<endl;
+gotoxy(t,16);cout<<"    oo    "<<endl;
+
+}
+
+void four4(int f){
+gotoxy(f,20);cout<<"      ooo  "<<endl;            
+gotoxy(f,21);cout<<"     0000  "<<endl;  
+gotoxy(f,22);cout<<"    oo oo  "<<endl;  
+gotoxy(f,23);cout<<"   00  00  "<<endl;  
+gotoxy(f,24);cout<<"  ooooooo  "<<endl;  
+gotoxy(f,25);cout<<"      000  "<<endl;  
+gotoxy(f,26);cout<<"      ooo  "<<endl;  
+gotoxy(f,27);cout<<"      000  "<<endl; 
+}
+
+void tituloAnimado(){
+   for (int x = 50; x > 10; x=x-8)
+   {
+       int o=x+10, n=o+10, n1=n+10, e=n1+10, c=e+10, t=c+10, f=e;
+       letterC(x);
+       letterO(o);
+       letterN(n);
+       letterN(n1);
+       letterE(e);
+       letterC(c);
+       letterT(t);
+       four4(f);
+   usleep(400000);
+   system("clear");
+   usleep(10000);
+   }
+   
+
+}
+=======
+>>>>>>> 181935aa41e574ea6a6b86e27e6346168707182b
