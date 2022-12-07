@@ -305,7 +305,7 @@ cout<<"\033[0;30m"<<"\u2726 The disc will be placed at the bottom of this column
 gotoxy(44,16);
 cout<<"\033[0;30m"<<"sitting on top of discs previously placed in one"<<"\033[o"<<endl;
 gotoxy(44,17);
-cout<<"\033[0;30m"<<"of the seven slots."<<"\033[o;"<<endl;
+cout<<"\033[0;30m"<<"of the seven slots."<<"\033[o"<<endl;
 gotoxy(44,19);
 cout<<"\033[0;30m"<<"\u2726 The game ends when there is a 4 in a row or deadlock."<<"\033[o"<<endl;
 
