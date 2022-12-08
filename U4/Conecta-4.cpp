@@ -40,8 +40,7 @@ bool checkPlay(int);//samuel
 void gotoxy(int x,int y);
 void instructions();
 void fillArea();//Jorge
-
-bool checkWinner(int, int,string);
+bool checkWinner(int,int,string);
 
 void letterC(int);
 void letterO(int);
@@ -351,153 +350,154 @@ void fillArea(){
 bool checkWinner(int row, int col, string board){
 
     if (board==BOARD){    
-    bool win = false;
-    int cont = 1;
-    int numCol = col + 1;
-    int n2Col = col - 1;
-    int numRow = row + 1;
-    int n2Row = row - 1;
-    int pRow=row-1;
-    int pCol=col+1;
-    int n1Row=row+1;
-    int n1Col=col-1;
-    int n3Row=row-1;
-    int n3Col=col-1;
-    int n4Row=row+1;
-    int n4Col=col+1;
-    
-    //horizontal
-    while (gameArea[row][col] == gameArea[row][numCol])
-    {
-        cont++;
-        numCol++;
-    }
-    while (gameArea[row][col] == gameArea[row][n2Col])
-    {
-        cont++;
-        n2Col--;
-    }
-    
-    //vertical
-    while (gameArea[row][col] == gameArea[numRow][col])
-    {
-        cont++;
-        numRow++;
-    }
-    while (gameArea[row][col] == gameArea[n2Row][col])
-    {
-        cont++;
-        n2Row--;
-    }
-    //diagonales
-    while (gameArea[row][col] == gameArea[pRow][pCol])
-    {
-        cont++;
-        pRow--;
-        pCol++;
+        bool win = false;
+        int cont = 1;
+        int numCol = col + 1;
+        int n2Col = col - 1;
+        int numRow = row + 1;
+        int n2Row = row - 1;
+        int pRow=row-1;
+        int pCol=col+1;
+        int n1Row=row+1;
+        int n1Col=col-1;
+        int n3Row=row-1;
+        int n3Col=col-1;
+        int n4Row=row+1;
+        int n4Col=col+1;
         
-    }
-    while (gameArea[row][col] == gameArea[n1Row][n1Col])
-    {
-        cont++;
-        n1Row++;
-        n1Col--;
-    }
-    while (gameArea[row][col] == gameArea[n3Row][n3Col])
-    {
-        cont++;
-        n2Row--;
-        n2Col--;
-    }
-    while (gameArea[row][col] == gameArea[n4Row][n4Col])
-    {
-        cont++;
-        n3Row++;
-        n3Col++;
-    }
-    if (cont == 4)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-   }else if (board==PCBOARD){
-     bool win = false;
-    int cont = 1;
-    int numCol = col + 1;
-    int n2Col = col - 1;
-    int numRow = row + 1;
-    int n2Row = row - 1;
-    int pRow=row-1;
-    int pCol=col+1;
-    int n1Row=row+1;
-    int n1Col=col-1;
-    int n3Row=row-1;
-    int n3Col=col-1;
-    int n4Row=row+1;
-    int n4Col=col+1;
-    
-    //horizontal
-    while (gameArea[row][col] == gameArea[row][numCol])
-    {
-        cont++;
-        numCol++;
-    }
-    while (gameArea[row][col] == gameArea[row][n2Col])
-    {
-        cont++;
-        n2Col--;
-    }
-    
-    //vertical
-    while (gameArea[row][col] == gameArea[numRow][col])
-    {
-        cont++;
-        numRow++;
-    }
-    while (gameArea[row][col] == gameArea[n2Row][col])
-    {
-        cont++;
-        n2Row--;
-    }
-    //diagonales
-    while (gameArea[row][col] == gameArea[pRow][pCol])
-    {
-        cont++;
-        pRow--;
-        pCol++;
+        //horizontal
+        while (gameArea[row][col] == gameArea[row][numCol])
+        {
+            cont++;
+            numCol++;
+        }
+        while (gameArea[row][col] == gameArea[row][n2Col])
+        {
+            cont++;
+            n2Col--;
+        }
         
+        //vertical
+        while (gameArea[row][col] == gameArea[numRow][col])
+        {
+            cont++;
+            numRow++;
+        }
+        while (gameArea[row][col] == gameArea[n2Row][col])
+        {
+            cont++;
+            n2Row--;
+        }
+        //diagonales
+        while (gameArea[row][col] == gameArea[pRow][pCol])
+        {
+            cont++;
+            pRow--;
+            pCol++;
+            
+        }
+        while (gameArea[row][col] == gameArea[n1Row][n1Col])
+        {
+            cont++;
+            n1Row++;
+            n1Col--;
+        }
+        while (gameArea[row][col] == gameArea[n3Row][n3Col])
+        {
+            cont++;
+            n2Row--;
+            n2Col--;
+        }
+        while (gameArea[row][col] == gameArea[n4Row][n4Col])
+        {
+            cont++;
+            n3Row++;
+            n3Col++;
+        }
+        if (cont == 4)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
-    while (gameArea[row][col] == gameArea[n1Row][n1Col])
-    {
-        cont++;
-        n1Row++;
-        n1Col--;
+   else if (board==PCBOARD){
+        bool win = false;
+        int cont = 1;
+        int numCol = col + 1;
+        int n2Col = col - 1;
+        int numRow = row + 1;
+        int n2Row = row - 1;
+        int pRow=row-1;
+        int pCol=col+1;
+        int n1Row=row+1;
+        int n1Col=col-1;
+        int n3Row=row-1;
+        int n3Col=col-1;
+        int n4Row=row+1;
+        int n4Col=col+1;
+        
+        //horizontal
+        while (gameArea[row][col] == gameArea[row][numCol])
+        {
+            cont++;
+            numCol++;
+        }
+        while (gameArea[row][col] == gameArea[row][n2Col])
+        {
+            cont++;
+            n2Col--;
+        }
+        
+        //vertical
+        while (gameArea[row][col] == gameArea[numRow][col])
+        {
+            cont++;
+            numRow++;
+        }
+        while (gameArea[row][col] == gameArea[n2Row][col])
+        {
+            cont++;
+            n2Row--;
+        }
+        //diagonales
+        while (gameArea[row][col] == gameArea[pRow][pCol])
+        {
+            cont++;
+            pRow--;
+            pCol++;
+            
+        }
+        while (gameArea[row][col] == gameArea[n1Row][n1Col])
+        {
+            cont++;
+            n1Row++;
+            n1Col--;
+        }
+        while (gameArea[row][col] == gameArea[n3Row][n3Col])
+        {
+            cont++;
+            n2Row--;
+            n2Col--;
+        }
+        while (gameArea[row][col] == gameArea[n4Row][n4Col])
+        {
+            cont++;
+            n3Row++;
+            n3Col++;
+        }
+        if (cont == 4)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
-    while (gameArea[row][col] == gameArea[n3Row][n3Col])
-    {
-        cont++;
-        n2Row--;
-        n2Col--;
-    }
-    while (gameArea[row][col] == gameArea[n4Row][n4Col])
-    {
-        cont++;
-        n3Row++;
-        n3Col++;
-    }
-    if (cont == 4)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-   }
-   return false;
+    return false;
 }
   
 void letterC (int x){
