@@ -30,20 +30,13 @@ using namespace std;
 void mainMenu();//Osiris
 void makeBoard();//Jorge
 int selectPlay();//Samuel
-bool checkPlay();//samuel
-void playGame();//Jorge
-bool checkPlay(int);//samuel
 void playGame(int);//Jorge
 void insertPlay(int play);//Jorge
-void gotoxy(int x,int y);
-void instructions();
 int placeTabOn();
 void matrixCPU();
 void animation();
 void title();
 bool checkPlay(int);//samuel
-void playGame(int);//Jorge
-void insertPlay(int play);//Jorge
 void gotoxy(int x,int y);
 void instructions();
 void fillArea();//Jorge
@@ -356,7 +349,7 @@ void fillArea(){
 }
 //FUNCTION THAT CHECK IF THERE IS A WINNER
 bool checkWinner(int row, int col, string board){
-    
+
     if (board==BOARD){    
     bool win = false;
     int cont = 1;
