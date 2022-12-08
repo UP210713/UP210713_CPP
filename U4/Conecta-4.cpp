@@ -48,7 +48,7 @@ void gotoxy(int x,int y);
 void instructions();
 void fillArea();//Jorge
 
-bool checkWinner();
+bool checkWinner(int, int,string);
 
 void letterC(int);
 void letterO(int);
@@ -66,7 +66,12 @@ string realBoard = "real";
 int turnPlayer=1;
 char gameArea[7][7];
 int player_winner;
+int col,row;
 bool winner = false;
+const string PC = "Machine";
+const string User = "User";
+const string BOARD = "Real";
+const string PCBOARD = "Imaginary";
 
 //MAIN FUNCTION
  int main(){
@@ -77,25 +82,22 @@ bool winner = false;
     mainMenu();
     title();  
  }
-
-
- 
 //FUNCTION THAT CREATES THE BOARD OF THE GAME
 void makeBoard(){
 
-    int row,col,x=1,y=1;
+    int ROW,COL,x=1,y=1;
     
 
     cout<<"\033[0;33m"<<"  1    2    3    4    5    6    7    "<<"\033[o"<<endl;
 
-    for (row=0;row<=6;row++){
+    for (ROW=0;ROW<=6;ROW++){
         
-        for(col=0;col<=28;col++){
+        for(COL=0;COL<=28;COL++){
 
-            if(col==0||col==4||col==8||col==12||col==16||col==20||col==24||col==28){
+            if(COL==0||COL==4||COL==8||COL==12||COL==16||COL==20||COL==24||COL==28){
                 cout<<"\033[0;34m"<<"|"<<"\033[o";
             }
-            else if(col==3||col==7||col==11||col==15||col==19||col==23||col==27){
+            else if(COL==3||COL==7||COL==11||COL==15||COL==19||COL==23||COL==27){
 
                 if (gameArea[x][y] == 'X'){
                     cout<<"\033[3;32m"<<"  "<<gameArea[x][y]<<" "<<"\033[o";
@@ -162,7 +164,7 @@ void playGame(int option){
                  
                 
             } 
-           // winner=checkWinner();
+             winner=checkWinner(row,col,BOARD);
             
 
         }while (turnPlayer<=49 && winner==false);
@@ -210,16 +212,8 @@ int selectPlay(){
 }
 //FUNCTION THAT CHECK IF THE PLAY IS VALID
 bool checkPlay(int play){
-    /*int row = play, col = 7;
-    if (gameArea[row][col] == 'X' || gameArea[row][col] == 'O')
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-    */
+   
+    
    if (play<1||play>7){
     return true;
    }
@@ -320,7 +314,6 @@ if (start==1)
 
 }
 
-
 void animation(){
     for(int count=10;count<20; count++){ 
         gotoxy(50,11); cout<<"\033[4;36m"<<"Welcome to Connect 4"<<"\033[o"<<endl;
@@ -350,13 +343,9 @@ void animation(){
     }
 }
 
-
 void title(){
     gotoxy(60,2); cout<<"\033[5;32m"<<"C-O-N-N-E-C-T----IV"<<"\033[o"<<endl;
 }
-
-
-
 //AT FIRST INSTANCE THE BOARDS NEEDS TO BE FILL WITH EMPTY CHARACTERS
 void fillArea(){
     for(int row=1;row<8;row++){
@@ -365,49 +354,159 @@ void fillArea(){
         }
     }
 }
-
-
 //FUNCTION THAT CHECK IF THERE IS A WINNER
-bool checkWinner(){
-   	for (int i = 0; i < 7; i++) {
-        for (int j = 6; j >= 3; j--) {
-        //checkWinner
-          if (
-            gameArea[j][i] == 'O' ||
-            gameArea[j][i] == 'X'
-          ) {
-            if (
-              gameArea[j][i] == 'O' &&
-              gameArea[j-1][i] == 'O' &&
-              gameArea[j-2][i] == 'O' &&
-              gameArea[j-3][i] == 'O'
-            ) {
-              player_winner = 1;
-              winner = true;
-              break;
-            }
-
-            if (
-              gameArea[j][i] == 'X' &&
-              gameArea[j-1][i] == 'X' &&
-              gameArea[j-2][i] == 'X' &&
-              gameArea[j-3][i] == 'X'
-            ) {
-              player_winner = 2;
-              winner = true;
-              break;
-            }
-          } else {
-            break;
-          }
-        }
+bool checkWinner(int row, int col, string board){
+    
+    if (board==BOARD){    
+    bool win = false;
+    int cont = 1;
+    int numCol = col + 1;
+    int n2Col = col - 1;
+    int numRow = row + 1;
+    int n2Row = row - 1;
+    int pRow=row-1;
+    int pCol=col+1;
+    int n1Row=row+1;
+    int n1Col=col-1;
+    int n3Row=row-1;
+    int n3Col=col-1;
+    int n4Row=row+1;
+    int n4Col=col+1;
+    
+    //horizontal
+    while (gameArea[row][col] == gameArea[row][numCol])
+    {
+        cont++;
+        numCol++;
     }
-  return checkWinner;	
- }   
+    while (gameArea[row][col] == gameArea[row][n2Col])
+    {
+        cont++;
+        n2Col--;
+    }
+    
+    //vertical
+    while (gameArea[row][col] == gameArea[numRow][col])
+    {
+        cont++;
+        numRow++;
+    }
+    while (gameArea[row][col] == gameArea[n2Row][col])
+    {
+        cont++;
+        n2Row--;
+    }
+    //diagonales
+    while (gameArea[row][col] == gameArea[pRow][pCol])
+    {
+        cont++;
+        pRow--;
+        pCol++;
+        
+    }
+    while (gameArea[row][col] == gameArea[n1Row][n1Col])
+    {
+        cont++;
+        n1Row++;
+        n1Col--;
+    }
+    while (gameArea[row][col] == gameArea[n3Row][n3Col])
+    {
+        cont++;
+        n2Row--;
+        n2Col--;
+    }
+    while (gameArea[row][col] == gameArea[n4Row][n4Col])
+    {
+        cont++;
+        n3Row++;
+        n3Col++;
+    }
+    if (cont == 4)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+   }else if (board==PCBOARD){
+     bool win = false;
+    int cont = 1;
+    int numCol = col + 1;
+    int n2Col = col - 1;
+    int numRow = row + 1;
+    int n2Row = row - 1;
+    int pRow=row-1;
+    int pCol=col+1;
+    int n1Row=row+1;
+    int n1Col=col-1;
+    int n3Row=row-1;
+    int n3Col=col-1;
+    int n4Row=row+1;
+    int n4Col=col+1;
+    
+    //horizontal
+    while (gameArea[row][col] == gameArea[row][numCol])
+    {
+        cont++;
+        numCol++;
+    }
+    while (gameArea[row][col] == gameArea[row][n2Col])
+    {
+        cont++;
+        n2Col--;
+    }
+    
+    //vertical
+    while (gameArea[row][col] == gameArea[numRow][col])
+    {
+        cont++;
+        numRow++;
+    }
+    while (gameArea[row][col] == gameArea[n2Row][col])
+    {
+        cont++;
+        n2Row--;
+    }
+    //diagonales
+    while (gameArea[row][col] == gameArea[pRow][pCol])
+    {
+        cont++;
+        pRow--;
+        pCol++;
+        
+    }
+    while (gameArea[row][col] == gameArea[n1Row][n1Col])
+    {
+        cont++;
+        n1Row++;
+        n1Col--;
+    }
+    while (gameArea[row][col] == gameArea[n3Row][n3Col])
+    {
+        cont++;
+        n2Row--;
+        n2Col--;
+    }
+    while (gameArea[row][col] == gameArea[n4Row][n4Col])
+    {
+        cont++;
+        n3Row++;
+        n3Col++;
+    }
+    if (cont == 4)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+   }
+   return false;
+}
   
-
-
-
 void letterC (int x){
 gotoxy(x,12);cout<<"\033[1;33m"<<"   oooooo  "<<"\033[o"<<endl; 
 gotoxy(x,13);cout<<"   00      "<<endl;    
