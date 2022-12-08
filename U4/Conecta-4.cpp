@@ -47,21 +47,35 @@ void insertPlay(int play);//Jorge
 void gotoxy(int x,int y);
 void instructions();
 void fillArea();//Jorge
+
 bool checkWinner();
+
+void letterC(int);
+void letterO(int);
+void letterN(int);
+void letterE(int);
+void letterT(int);
+void four4(int);
+void tituloAnimado();
+
+
+
+string realBoard = "real";
 
 //CONSTANTS OF THE CODE
 int turnPlayer=1;
 char gameArea[7][7];
-
+int player_winner;
+bool winner = false;
 
 //MAIN FUNCTION
  int main(){
+    tituloAnimado();
     animation();
     instructions();
     title();
     mainMenu();
     title();  
-
  }
 
 
@@ -83,8 +97,15 @@ void makeBoard(){
             }
             else if(col==3||col==7||col==11||col==15||col==19||col==23||col==27){
 
+                if (gameArea[x][y] == 'X'){
+                    cout<<"\033[3;32m"<<"  "<<gameArea[x][y]<<" "<<"\033[o";
+    
+                }else if (gameArea[x][y] == 'O'){
+                    cout<<"\033[3;31m"<<"  "<<gameArea[x][y]<<" "<<"\033[o";
+                }else{     
                 
-                cout<<"  "<<gameArea[x][y]<<" ";
+                    cout<<"  "<<gameArea[x][y]<<" ";
+                }
                 x++;
             }
                 
@@ -141,7 +162,7 @@ void playGame(int option){
                  
                 
             } 
-            winner=checkWinner();
+           // winner=checkWinner();
             
 
         }while (turnPlayer<=49 && winner==false);
@@ -167,7 +188,10 @@ void playGame(int option){
 int selectPlay(){
     int move=0;
     int gamer;
+  
+     
     
+
      do{
         if(turnPlayer%2!=0){
             gamer=1;
@@ -180,6 +204,7 @@ int selectPlay(){
                      cin >> move;
     } while (move<=0||move>9);
 
+    
     return move;
 
 }
@@ -216,7 +241,8 @@ void insertPlay(int play){
         record='O';
    }
 
-   
+
+
    if(gameArea[play][row]=='X' || gameArea[play][row]=='O'){
     do{
 
@@ -279,12 +305,12 @@ cout<<"\033[0;30m"<<"\u2726 The disc will be placed at the bottom of this column
 gotoxy(44,16);
 cout<<"\033[0;30m"<<"sitting on top of discs previously placed in one"<<"\033[o"<<endl;
 gotoxy(44,17);
-cout<<"\033[0;30m"<<"of the seven slots."<<"\033[o;"<<endl;
+cout<<"\033[0;30m"<<"of the seven slots."<<"\033[o"<<endl;
 gotoxy(44,19);
 cout<<"\033[0;30m"<<"\u2726 The game ends when there is a 4 in a row or deadlock."<<"\033[o"<<endl;
 
 gotoxy(2,11);
-cout<<"\033[3;33m"<<"Click 1 to STATRT"<<"\033[o"<<endl;
+cout<<"\033[3;33m"<<" Click 1 to STATRT  \u26A1"<<"\033[o"<<endl;
 cin>>start;
 if (start==1)
 {
@@ -297,18 +323,24 @@ if (start==1)
 
 void animation(){
     for(int count=10;count<20; count++){ 
-        gotoxy(50,12); cout<<"\033[4;36m"<<"Welcome to Connect 4"<<"\033[o"<<endl;
-        gotoxy(51,13);cout<<"\033[5;31m"<<"Loading..."<<"\033[o"<<endl;
+        gotoxy(50,11); cout<<"\033[4;36m"<<"Welcome to Connect 4"<<"\033[o"<<endl;
+        gotoxy(52,13);cout<<"\033[5;31m"<<"Loading "<<"\033[o"<<endl;
         for(int charge=0;charge<4;charge++){ 
             if (charge==1)
             {
-            gotoxy(51,14);cout<<"\033[5;31m"<<" |||......_"<<"\033[o"<<endl;
+            gotoxy(50,11); cout<<"\033[4;36m"<<"Welcome to Connect 4"<<"\033[o"<<endl;
+            gotoxy(52,13);cout<<"\033[5;31m"<<"Loading. "<<"\033[o"<<endl;
+            gotoxy(52,14);cout<<"\033[5;31m"<<" |||......_"<<"\033[o"<<endl;
             }else if(charge==2)
             {
-            gotoxy(51,14);cout<<"\033[5;31m"<<" ...|||..."<<"\033[o"<<endl;
+            gotoxy(50,11); cout<<"\033[4;36m"<<"Welcome to Connect 4"<<"\033[o"<<endl;
+            gotoxy(52,13);cout<<"\033[5;31m"<<"Loading.. "<<"\033[o"<<endl;
+            gotoxy(52,14);cout<<"\033[5;31m"<<" ...|||..."<<"\033[o"<<endl;
             }else  if(charge==3)
             {
-            gotoxy(51,14);cout<<"\033[5;31m"<<" ......|||"<<"\033[o"<<endl;
+            gotoxy(50,11); cout<<"\033[4;36m"<<"Welcome to Connect 4"<<"\033[o"<<endl;
+            gotoxy(52,13);cout<<"\033[5;31m"<<"Loading... "<<"\033[o"<<endl;
+            gotoxy(52,14);cout<<"\033[5;31m"<<" ......|||"<<"\033[o"<<endl;
             }
             usleep(200000);
             system("clear");
@@ -337,13 +369,120 @@ void fillArea(){
 
 //FUNCTION THAT CHECK IF THERE IS A WINNER
 bool checkWinner(){
-     bool checkWinner = false;
-     int box=7;
-    for (box; box<=1; box--){
-        if((gameArea[box][1]==gameArea[box][2])&&(gameArea[box][2]==gameArea[box][3])&&(gameArea[box][3]==gameArea[box][4])){
-            checkWinner=true;
+   	for (int i = 0; i < 7; i++) {
+        for (int j = 6; j >= 3; j--) {
+        //checkWinner
+          if (
+            gameArea[j][i] == 'O' ||
+            gameArea[j][i] == 'X'
+          ) {
+            if (
+              gameArea[j][i] == 'O' &&
+              gameArea[j-1][i] == 'O' &&
+              gameArea[j-2][i] == 'O' &&
+              gameArea[j-3][i] == 'O'
+            ) {
+              player_winner = 1;
+              winner = true;
+              break;
+            }
+
+            if (
+              gameArea[j][i] == 'X' &&
+              gameArea[j-1][i] == 'X' &&
+              gameArea[j-2][i] == 'X' &&
+              gameArea[j-3][i] == 'X'
+            ) {
+              player_winner = 2;
+              winner = true;
+              break;
+            }
+          } else {
             break;
+          }
         }
     }
-    return checkWinner;
+  return checkWinner;	
+ }   
+  
+
+
+
+void letterC (int x){
+gotoxy(x,12);cout<<"\033[1;33m"<<"   oooooo  "<<"\033[o"<<endl; 
+gotoxy(x,13);cout<<"   00      "<<endl;    
+gotoxy(x,14);cout<<"   oo      "<<endl; 
+gotoxy(x,15);cout<<"   00      "<<endl;    
+gotoxy(x,16);cout<<"   oooooo  "<<endl;  
+
+}
+
+void letterO (int o){
+gotoxy(o,12);cout<<"  oooooo  "<<endl;
+gotoxy(o,13);cout<<"  00  00  "<<endl;
+gotoxy(o,14);cout<<"  oo  oo  "<<endl;
+gotoxy(o,15);cout<<"  00  00  "<<endl;   
+gotoxy(o,16);cout<<"  oooooo  "<<endl;    
+
+}
+
+void letterN (int n){
+
+gotoxy(n,12);cout<<"  ooo  oo  "<<endl; 
+gotoxy(n,13);cout<<"  000  00  "<<endl;   
+gotoxy(n,14);cout<<"  oooo oo  "<<endl;  
+gotoxy(n,15);cout<<"  00  000  "<<endl;    
+gotoxy(n,16);cout<<"  oo   oo  "<<endl;   
+
+}
+
+void letterE (int e){
+
+gotoxy(e,12);cout<<"  oooooo  "<<endl;  
+gotoxy(e,13);cout<<"  00      "<<endl;    
+gotoxy(e,14);cout<<"  oooooo  "<<endl;    
+gotoxy(e,15);cout<<"  00      "<<endl;    
+gotoxy(e,16);cout<<"  oooooo  "<<endl;     
+
+}
+
+void letterT (int t){
+
+gotoxy(t,12);cout<<" oooooooo "<<endl;  
+gotoxy(t,13);cout<<"    00    "<<endl;
+gotoxy(t,14);cout<<"    oo    "<<endl;
+gotoxy(t,15);cout<<"    00    "<<endl;
+gotoxy(t,16);cout<<"    oo    "<<endl;
+
+}
+
+void four4(int f){
+gotoxy(f,20);cout<<"      ooo  "<<endl;            
+gotoxy(f,21);cout<<"     0000  "<<endl;  
+gotoxy(f,22);cout<<"    oo oo  "<<endl;  
+gotoxy(f,23);cout<<"   00  00  "<<endl;  
+gotoxy(f,24);cout<<"  ooooooo  "<<endl;  
+gotoxy(f,25);cout<<"      000  "<<endl;  
+gotoxy(f,26);cout<<"      ooo  "<<endl;  
+gotoxy(f,27);cout<<"      000  "<<endl; 
+}
+
+void tituloAnimado(){
+   for (int x = 50; x > 1; x=x-5)
+   {
+       int o=x+10, n=o+10, n1=n+10, e=n1+10, c=e+10, t=c+10, f=e;
+       letterC(x);
+       letterO(o);
+       letterN(n);
+       letterN(n1);
+       letterE(e);
+       letterC(c);
+       letterT(t);
+       four4(f);
+   usleep(400000);
+   system("clear");
+   usleep(9000);
+   }
+   
+
 }
